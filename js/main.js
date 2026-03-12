@@ -552,13 +552,17 @@
                 .join(' ');
         }
 
-        function updateUrlIndustryParam(industryKey) {
+        function clearIndustryParamFromUrl() {
             try {
                 const url = new URL(window.location.href);
-                url.searchParams.set('industry', industryKey);
-                window.history.replaceState({}, '', url.toString());
+                if (!url.searchParams.has('industry')) return;
+
+                url.searchParams.delete('industry');
+                const query = url.searchParams.toString();
+                const cleanUrl = `${url.pathname}${query ? `?${query}` : ''}${url.hash}`;
+                window.history.replaceState({}, '', cleanUrl);
             } catch (error) {
-                console.error('Error updating URL industry parameter:', error);
+                console.error('Error clearing URL industry parameter:', error);
             }
         }
 
@@ -647,13 +651,12 @@
 
         selector.addEventListener('change', () => {
             applyIndustry(selector.value);
-            updateUrlIndustryParam(selector.value);
         });
 
         const initialIndustry = resolveInitialIndustry();
         selector.value = initialIndustry;
         applyIndustry(initialIndustry);
-        updateUrlIndustryParam(initialIndustry);
+        clearIndustryParamFromUrl();
     }
 
     /* ===========================
