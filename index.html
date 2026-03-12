@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>we2systems | Platform Engineering, Data Security, Data Protection</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-accent': '#0ea5e9',
+                        'bg-base': '#070b14',
+                        'bg-surface': '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'sans-serif'],
+                        display: ['Helvetica Neue', 'Helvetica', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="fluid-bg" class="fluid-background"></div>
+
+    <header class="sticky top-0 z-50 border-b border-slate-700/70 bg-bg-base/95 backdrop-blur">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="#home" class="text-white font-display text-2xl tracking-tight"><span class="text-brand-accent">we2</span>systems</a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="#focus" class="nav-link text-slate-300 text-base font-medium">What We Focus On</a>
+                <a href="#case-studies" class="nav-link text-slate-300 text-base font-medium">Case Studies</a>
+                <a href="#readiness" class="nav-link text-slate-300 text-base font-medium">Readiness</a>
+                <a href="#partners" class="nav-link text-slate-300 text-base font-medium">Partners</a>
+                <a href="#engagements" class="nav-link text-slate-300 text-base font-medium">Engagements</a>
+                <a href="#contact" class="nav-link text-slate-300 text-base font-medium">Contact</a>
+            </nav>
+
+            <a href="#contact" class="hidden md:inline-flex px-4 py-2 rounded-lg bg-brand-accent text-white text-sm font-medium hover:bg-sky-500 transition">Talk to an Architect</a>
+
+            <button id="mobileMenuBtn" class="md:hidden text-slate-300" aria-label="Open menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <nav id="mobileMenu" class="hidden md:hidden border-t border-slate-700/70 bg-bg-base px-5 py-4 space-y-3">
+            <a href="#focus" class="block text-slate-300 text-base font-medium">What We Focus On</a>
+            <a href="#case-studies" class="block text-slate-300 text-base font-medium">Case Studies</a>
+            <a href="#readiness" class="block text-slate-300 text-base font-medium">Readiness</a>
+            <a href="#partners" class="block text-slate-300 text-base font-medium">Partners</a>
+            <a href="#engagements" class="block text-slate-300 text-base font-medium">Engagements</a>
+            <a href="#contact" class="block text-slate-300 text-base font-medium">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="relative min-h-[88vh] flex items-center">
+            <div id="parallaxText" class="max-w-6xl mx-auto px-5 py-24 w-full text-center">
+                <p class="text-brand-accent uppercase text-s tracking-[0.2em] mb-6">Production Infrastructure Outcomes</p>
+                <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl leading-tight max-w-4xl mx-auto">
+                    Recover Faster. Audit Better.<br>Scale Without Operational Drag.
+                </h1>
+                <p class="mt-8 text-slate-300 text-lg max-w-3xl leading-relaxed mx-auto">
+                    We engineer resilient platforms for virtualization, Kubernetes, and hybrid infrastructure so your teams can ship safely under real-world pressure, not just in architecture diagrams.
+                </p>
+
+                <div class="industry-switcher-wrap mt-8 max-w-3xl mx-auto">
+                    <label for="industryContextSelect" class="industry-label">Tailor this view for</label>
+                    <select id="industryContextSelect" class="industry-select" aria-label="Select client industry context">
+                        <option value="financial-services" selected>Financial Services</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="saas">SaaS / Technology</option>
+                    </select>
+                    <p id="industryContextNote" class="industry-note">Use this mode during client demos to show industry-relevant outcomes and priorities.</p>
+                </div>
+
+                <div class="mt-10 grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                    <div class="focus-pill">Platform Engineering</div>
+                    <div class="focus-pill">Data Security</div>
+                    <div class="focus-pill">Data Protection</div>
+                </div>
+
+                <div class="mt-10 proof-strip max-w-5xl mx-auto" data-industry-dynamic>
+                    <article class="proof-card">
+                        <p id="proofValue1" class="proof-value">99.95%</p>
+                        <p id="proofLabel1" class="proof-label">backup job reliability across protected workloads</p>
+                    </article>
+                    <article class="proof-card">
+                        <p id="proofValue2" class="proof-value">42%</p>
+                        <p id="proofLabel2" class="proof-label">faster disaster-recovery drill execution</p>
+                    </article>
+                    <article class="proof-card">
+                        <p id="proofValue3" class="proof-value">31%</p>
+                        <p id="proofLabel3" class="proof-label">less manual infra operations through automation</p>
+                    </article>
+                </div>
+
+                <div class="mt-12 max-w-5xl mx-auto">
+                    <p class="text-slate-400 text-sm mb-3">Our Expertise</p>
+                    <div class="partner-logo-grid">
+                        <div class="partner-logo-tile">
+                            <img src="images/partners/Veeam_logo_2024_RGB_w_stroke_20.png" alt="Veeam" class="partner-logo" loading="lazy">
+                        </div>
+                        <div class="partner-logo-tile">
+                            <img src="images/partners/kasten.svg" alt="Kasten" class="partner-logo" loading="lazy">
+                        </div>
+                        <div class="partner-logo-tile">
+                            <img src="images/partners/nutanix-logo-charcoal-gray.svg" alt="Nutanix" class="partner-logo" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#readiness" class="inline-flex px-8 py-3 rounded-lg bg-brand-accent text-white font-medium hover:bg-sky-500 transition">
+                        Run 2-Minute Readiness Snapshot
+                    </a>
+                    <a href="#contact" class="inline-flex px-8 py-3 rounded-lg border border-slate-600 text-slate-100 font-medium hover:border-sky-400 transition">
+                        Talk to an Architect
+                    </a>
+                </div>
+
+                <section id="recovery-timeline" class="mt-14 max-w-5xl mx-auto text-left">
+                    <p class="timeline-eyebrow">15-second incident-to-recovery story</p>
+                    <div class="timeline-rail" id="timelineRail" role="tablist" aria-label="Incident timeline">
+                        <button class="timeline-step is-active" data-step="0" role="tab" aria-selected="true">Alert</button>
+                        <button class="timeline-step" data-step="1" role="tab" aria-selected="false">Contain</button>
+                        <button class="timeline-step" data-step="2" role="tab" aria-selected="false">Restore</button>
+                        <button class="timeline-step" data-step="3" role="tab" aria-selected="false">Verify</button>
+                    </div>
+                    <div class="timeline-panel" id="timelinePanel">
+                        <h3 id="timelineTitle" class="timeline-title">Signal detected in under 90 seconds</h3>
+                        <p id="timelineText" class="timeline-text">Runtime alerting flags unusual backup behavior. Playbooks auto-route response ownership to the on-call platform squad.</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">A Different Kind of Infrastructure Consulting</h2>
+                <p class="text-slate-300 text-lg max-w-4xl leading-relaxed mx-auto">
+                    Traditional consulting often stops at architecture diagrams. We prefer building systems that actually run in production. Our background comes from years of designing and operating enterprise infrastructure platforms, virtualization environments, Kubernetes platforms, hybrid infrastructure, and modern data protection architectures.
+                </p>
+                <p class="text-slate-300 text-lg max-w-4xl leading-relaxed mt-5 mx-auto">
+                    We enjoy working in the space where infrastructure engineering, data protection, and data security intersect.
+                </p>
+            </div>
+        </section>
+
+        <section id="focus" class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-12">What We Focus On</h2>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <article class="content-card">
+                        <h3 class="font-display text-2xl text-white mb-4">Platform Engineering &amp; Automation</h3>
+                        <p class="text-slate-300 mb-5">We design infrastructure platforms that support both traditional workloads and cloud-native applications, with reliability and scale built in.</p>
+                        <ul class="content-list text-left">
+                            <li>Kubernetes platform architecture</li>
+                            <li>OpenShift deployments</li>
+                            <li>Hybrid infrastructure design</li>
+                            <li>Infrastructure automation and orchestration</li>
+                            <li>Container platform engineering for enterprise workloads</li>
+                            <li>Operational frameworks for platform reliability</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <h3 class="font-display text-2xl text-white mb-4">Data Security &amp; Governance</h3>
+                        <p class="text-slate-300 mb-5">With regulations such as India&apos;s DPDP Act, organizations need stronger data governance and security frameworks.</p>
+                        <ul class="content-list text-left">
+                            <li>Sensitive data discovery</li>
+                            <li>Data Security Posture Management</li>
+                            <li>Data governance frameworks</li>
+                            <li>Data privacy compliance</li>
+                            <li>Enterprise data visibility</li>
+                            <li>Expanding capabilities with Securiti.ai</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <h3 class="font-display text-2xl text-white mb-4">Data Protection &amp; Recovery</h3>
+                        <p class="text-slate-300 mb-5">We build unified protection strategies across virtual machines, physical systems, and container platforms.</p>
+                        <ul class="content-list text-left">
+                            <li>Enterprise backup architecture</li>
+                            <li>Disaster recovery frameworks</li>
+                            <li>Immutable backup strategies</li>
+                            <li>Ransomware resilience</li>
+                            <li>Hybrid workload protection</li>
+                            <li>Container-native protection with Kasten by Veeam</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">Client Outcomes</h2>
+                <p class="text-slate-300 text-lg max-w-3xl leading-relaxed mx-auto mb-10">
+                    Two examples of how we move teams from platform risk to operational confidence.
+                </p>
+                <div class="grid lg:grid-cols-2 gap-6 text-left" data-industry-dynamic>
+                    <article class="case-card">
+                        <p id="case1Tag" class="case-tag">Financial Services</p>
+                        <h3 id="case1Title" class="case-title">From fragmented backup tools to a unified immutable strategy</h3>
+                        <p id="case1Problem" class="case-copy"><strong>Problem:</strong> DR tests were inconsistent across virtual machines and Kubernetes clusters, with uncertain recovery windows.</p>
+                        <p id="case1Change" class="case-copy"><strong>What we changed:</strong> Designed a unified Veeam + Kasten protection architecture with immutable backup tiers, policy-driven restores, and quarterly DR runbooks.</p>
+                        <p id="case1Outcome" class="case-outcome">Outcome: Recovery drill completion time reduced by 42% and audit evidence collection moved from days to hours.</p>
+                    </article>
+                    <article class="case-card">
+                        <p id="case2Tag" class="case-tag">Manufacturing</p>
+                        <h3 id="case2Title" class="case-title">Hybrid platform modernization without operational disruption</h3>
+                        <p id="case2Problem" class="case-copy"><strong>Problem:</strong> The infra team spent too much time on repetitive cluster operations and patch windows were high-risk.</p>
+                        <p id="case2Change" class="case-copy"><strong>What we changed:</strong> Introduced infrastructure automation pipelines, hardened OpenShift baseline controls, and role-based operational guardrails.</p>
+                        <p id="case2Outcome" class="case-outcome">Outcome: Manual platform ops reduced by 31% with predictable maintenance windows and faster issue triage.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="readiness" class="section-shell">
+            <div class="max-w-5xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">Infrastructure Readiness Snapshot</h2>
+                <p class="text-slate-300 text-lg max-w-3xl leading-relaxed mx-auto mb-10">
+                    Answer six checks to see your current resilience posture.
+                </p>
+
+                <div class="readiness-card text-left" data-industry-dynamic>
+                    <form id="readinessForm" class="space-y-4">
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="0">We have immutable backups for critical workloads.</span></label>
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="1">We test RTO and RPO targets at least quarterly.</span></label>
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="2">Kubernetes applications have restore runbooks.</span></label>
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="3">Sensitive data is continuously discovered and classified.</span></label>
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="4">Platform changes are automated through controlled pipelines.</span></label>
+                        <label class="readiness-item"><input type="checkbox" name="check" value="1"> <span data-readiness-item="5">Recovery ownership and incident escalation are clearly defined.</span></label>
+
+                        <button type="button" id="readinessScoreBtn" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-accent text-white font-semibold hover:bg-sky-500 transition">Calculate Score</button>
+                    </form>
+
+                    <div id="readinessResult" class="readiness-result hidden" role="status" aria-live="polite">
+                        <p class="readiness-score-line">Score: <span id="readinessScoreValue">0/6</span> <span id="readinessScoreBadge" class="readiness-badge">Baseline</span></p>
+                        <p id="readinessAdvice" class="readiness-advice"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture-story" class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">Before vs After Architecture Story</h2>
+                <p class="text-slate-300 text-lg max-w-3xl leading-relaxed mx-auto mb-10">
+                    Toggle between typical inherited complexity and a production-ready target state.
+                </p>
+
+                <div class="compare-toggle" role="tablist" aria-label="Architecture comparison toggle">
+                    <button class="compare-btn is-active" data-view="before" role="tab" aria-selected="true">Before</button>
+                    <button class="compare-btn" data-view="after" role="tab" aria-selected="false">After</button>
+                </div>
+
+                <div class="compare-panels" data-industry-dynamic>
+                    <article id="beforePanel" class="compare-panel is-visible">
+                        <h3 id="beforeTitle">Disconnected tooling, reactive operations</h3>
+                        <ul class="content-list mt-4">
+                            <li id="beforeItem1">Multiple backup silos with inconsistent retention policies</li>
+                            <li id="beforeItem2">Manual restore paths and unclear incident ownership</li>
+                            <li id="beforeItem3">Limited visibility into sensitive data exposure risk</li>
+                            <li id="beforeItem4">Infrastructure updates rely on ticket-driven manual execution</li>
+                        </ul>
+                    </article>
+                    <article id="afterPanel" class="compare-panel" aria-hidden="true">
+                        <h3 id="afterTitle">Unified, policy-driven, and recovery-tested platform</h3>
+                        <ul class="content-list mt-4">
+                            <li id="afterItem1">Single control plane for VM and container protection strategy</li>
+                            <li id="afterItem2">Tested runbooks aligned to target RTO and RPO thresholds</li>
+                            <li id="afterItem3">Continuous data discovery with governance and compliance mapping</li>
+                            <li id="afterItem4">Automated platform operations with auditable change controls</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="partners" class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">Our Partners</h2>
+                <p class="text-slate-300 text-lg max-w-3xl leading-relaxed mx-auto mb-10">
+                    We partner with leading platform and data protection companies to deliver resilient enterprise outcomes.
+                </p>
+                <div class="partner-logo-grid partner-logo-grid-section">
+                    <div class="partner-logo-tile">
+                        <img src="images/partners/Veeam_logo_2024_RGB_w_stroke_20.png" alt="Veeam" class="partner-logo" loading="lazy">
+                    </div>
+                    <div class="partner-logo-tile">
+                        <img src="images/partners/kasten.svg" alt="Kasten" class="partner-logo" loading="lazy">
+                    </div>
+                    <div class="partner-logo-tile">
+                        <img src="images/partners/nutanix-logo-charcoal-gray.svg" alt="Nutanix" class="partner-logo" loading="lazy">
+                    </div>
+                    <div class="partner-logo-tile">
+                        <img src="images/partners/OpenShift-LogoType (1).svg" alt="OpenShift" class="partner-logo" loading="lazy">
+                    </div>
+                    <div class="partner-logo-tile">
+                        <img src="images/partners/kubernetes-svgrepo-com.svg" alt="Kubernetes" class="partner-logo" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-10">Why We2Systems</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="content-card">
+                        <h3 class="font-display text-xl text-white mb-3">Engineering Mindset</h3>
+                        <p class="text-slate-300">We approach infrastructure challenges as engineers, not consultants.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3 class="font-display text-xl text-white mb-3">Hybrid Infrastructure Experience</h3>
+                        <p class="text-slate-300">Our work spans virtualization environments, Kubernetes platforms, and hybrid infrastructure.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3 class="font-display text-xl text-white mb-3">Production Focus</h3>
+                        <p class="text-slate-300">We focus on solutions that operate reliably in real environments, not just architecture diagrams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="engagements" class="section-shell">
+            <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-6">Typical Engagements</h2>
+                <p class="text-slate-300 text-lg mb-8">Organizations typically work with us when they need help with:</p>
+                <ul class="content-list max-w-3xl mx-auto">
+                    <li>Hybrid infrastructure platforms</li>
+                    <li>Veeam platform architecture</li>
+                    <li>Nutanix infrastructure modernization</li>
+                    <li>Disaster recovery design</li>
+                    <li>Infrastructure automation frameworks</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section-shell">
+            <div class="max-w-2xl mx-auto px-5 py-20 text-center">
+                <h2 class="font-display text-white text-3xl sm:text-4xl mb-3">Talk to an Architect</h2>
+                <p class="text-slate-300 mb-10">Share your current infrastructure challenge and we will get back to you.</p>
+
+                <form id="contactForm" action="https://formsubmit.co/ajax/rakeshmasireddy@gmail.com" method="POST" data-form-endpoint="https://formsubmit.co/ajax/rakeshmasireddy@gmail.com" class="content-card text-left">
+                    <div class="space-y-5">
+                        <input id="contactSubject" type="hidden" name="_subject" value="New Consultation Request - we2systems">
+                        <input type="hidden" name="_template" value="table">
+                        <input id="contactIndustryField" type="hidden" name="industry_context" value="financial-services">
+                        <input id="contactScoreField" type="hidden" name="readiness_score" value="Not scored">
+                        <input id="contactBadgeField" type="hidden" name="readiness_level" value="Not scored">
+                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg bg-bg-base border border-slate-700 text-white focus:border-brand-accent focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Work Email</label>
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg bg-bg-base border border-slate-700 text-white focus:border-brand-accent focus:outline-none transition">
+                            <p class="form-helper-text text-slate-400 mt-2">We use this only to respond to your request.</p>
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-slate-300 mb-1">Area of Interest</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 rounded-lg bg-bg-base border border-slate-700 text-white focus:border-brand-accent focus:outline-none transition">
+                                <option value="" disabled selected>Select an Area</option>
+                                <option value="platform-engineering">Platform Engineering &amp; Automation</option>
+                                <option value="data-security">Data Security &amp; Governance</option>
+                                <option value="data-protection">Data Protection &amp; Recovery</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Project Details</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-bg-base border border-slate-700 text-white focus:border-brand-accent focus:outline-none transition"></textarea>
+                        </div>
+
+                        <button id="contactSubmitBtn" type="submit" class="w-full px-6 py-3 rounded-lg bg-brand-accent text-white font-semibold hover:bg-sky-500 transition">
+                            Send Consultation Request
+                        </button>
+                        <p id="contactFormStatus" class="hidden text-sm text-center text-slate-300" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10">
+        <div class="max-w-6xl mx-auto px-5 text-sm text-slate-400">
+            <p>&copy; 2026 we2systems. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
