@@ -3,7 +3,6 @@
 
 (function() {
     'use strict';
-
     const appState = {
         industry: 'financial-services',
         industryLabel: 'Financial Services',
