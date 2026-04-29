@@ -58,29 +58,30 @@
 <body class="w-full min-h-screen font-sans antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white">
 
     <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-primary via-accent to-purple-500 z-[9999]" style="width:0%"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] z-[9999] rounded-r-full" style="width:0%"></div>
 
     <!-- ===================== NAVIGATION ===================== -->
     <nav id="header" class="fixed w-full z-50 glass-panel transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="#hero" class="flex-shrink-0 flex items-center cursor-pointer" aria-label="Back to homepage">
-                    <span class="font-heading font-bold text-2xl tracking-tight text-white">
-                        we<span class="text-primary">2</span>systems
+                <a href="#hero" class="flex-shrink-0 flex items-center cursor-pointer group" aria-label="Back to homepage">
+                    <span class="font-heading font-bold text-xl tracking-tight text-white">
+                        we<span class="text-gradient">2</span>systems
                     </span>
                 </a>
 
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#focus" class="relative text-sm font-medium text-slate-400 hover:text-primary transition-colors duration-300">What We Focus On</a>
-                    <a href="#process" class="relative text-sm font-medium text-slate-400 hover:text-primary transition-colors duration-300">How We Work</a>
-                    <a href="#technologies" class="relative text-sm font-medium text-slate-400 hover:text-primary transition-colors duration-300">Technologies</a>
-                    <a href="#why" class="relative text-sm font-medium text-slate-400 hover:text-primary transition-colors duration-300">Why We2Systems</a>
-                    <a href="#readiness" class="relative text-sm font-medium text-slate-400 hover:text-primary transition-colors duration-300">Contact</a>
+                <div class="hidden md:flex space-x-1 items-center bg-white/[0.03] rounded-full px-2 py-1.5 border border-white/[0.04]">
+                    <a href="#focus" class="relative text-sm font-medium text-slate-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300">Services</a>
+                    <a href="#process" class="relative text-sm font-medium text-slate-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300">Process</a>
+                    <a href="#technologies" class="relative text-sm font-medium text-slate-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300">Technologies</a>
+                    <a href="#why" class="relative text-sm font-medium text-slate-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300">Why Us</a>
+                    <a href="#readiness" class="relative text-sm font-medium text-slate-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300">Contact</a>
                 </div>
 
                 <div class="hidden md:flex items-center">
-                    <a href="#readiness" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-full text-white bg-primary/20 border border-primary/40 hover:bg-primary/30 hover:border-primary/60 shadow-glow transition-all duration-300 hover:-translate-y-0.5">
+                    <a href="#readiness" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow-lg">
                         Talk to an Architect
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                     </a>
                 </div>
 
@@ -92,7 +93,7 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-xl border-t border-white/5">
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-2xl border-t border-white/[0.04]">
             <div class="px-4 pt-3 pb-4 space-y-1">
                 <a href="#focus" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">What We Focus On</a>
                 <a href="#process" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">How We Work</a>
@@ -107,22 +108,44 @@
     </nav>
 
     <!-- ===================== HERO ===================== -->
-    <section id="hero" class="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden bg-dark-900 min-h-[100vh] flex items-center">
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden min-h-[100vh] flex items-center">
+        <!-- Mesh gradient base -->
+        <div class="hero-mesh-gradient"></div>
+
+        <!-- Noise / grain texture -->
+        <div class="hero-noise"></div>
+
+        <!-- Aurora / Northern Lights -->
+        <div class="hero-aurora">
+            <div class="hero-aurora-band"></div>
+            <div class="hero-aurora-band"></div>
+            <div class="hero-aurora-band"></div>
+        </div>
+
+        <!-- Perspective grid -->
+        <div class="hero-perspective-grid">
+            <div class="hero-perspective-grid-inner"></div>
+        </div>
+
+        <!-- Mouse-follow spotlight -->
+        <div id="hero-spotlight" class="hero-spotlight"></div>
+
         <!-- Particle network canvas -->
         <canvas id="particle-canvas"></canvas>
 
         <!-- Glowing orbs -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="absolute inset-0 z-[4] overflow-hidden">
             <div class="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-primary/10 filter blur-[150px] animate-float-slow"></div>
             <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-accent/10 filter blur-[150px] animate-float-medium"></div>
             <div class="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-purple-500/8 filter blur-[130px] animate-float-slow" style="animation-delay:-3s"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[10] w-full">
             <div class="text-center">
-                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-8 fade-up">
-                    <span class="w-2 h-2 rounded-full bg-primary mr-2.5 animate-pulse"></span>
+                <div class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/15 text-sm font-medium text-primary/90 mb-8 fade-up backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-primary mr-3 animate-pulse"></span>
                     Enterprise Infrastructure Engineering
+                    <i class="fa-solid fa-sparkles ml-2 text-xs text-accent/60"></i>
                 </div>
                 <h1 class="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] mb-6">
                     <span class="hero-words">
@@ -145,16 +168,6 @@
                     <a href="#focus" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full text-slate-300 border border-white/10 hover:border-primary/40 hover:text-primary transition-all duration-300 hover:-translate-y-1">
                         Explore Services
                         <i class="fa-solid fa-chevron-down ml-2.5 text-sm"></i>
-                    </a>
-                </div>
-
-                <!-- Scroll indicator -->
-                <div class="flex justify-center mb-8 fade-up" style="transition-delay:1.6s">
-                    <a href="#stats" class="scroll-indicator group flex flex-col items-center gap-2 text-slate-500 hover:text-primary transition-colors" aria-label="Scroll down">
-                        <span class="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
-                        <div class="w-6 h-10 rounded-full border-2 border-current p-1 flex justify-center">
-                            <div class="w-1 h-2.5 rounded-full bg-current animate-scroll-mouse"></div>
-                        </div>
                     </a>
                 </div>
             </div>
@@ -199,7 +212,7 @@
     </section>
 
     <!-- ===================== STATS BAR ===================== -->
-    <div id="stats" class="relative bg-dark-800 border-y border-white/5 py-20 section-glow-top">
+    <div id="stats" class="relative bg-dark-800/80 border-y border-white/[0.04] py-20 section-glow-top backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="fade-up relative">
@@ -254,22 +267,22 @@
                     <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center text-primary icon-glow transition-colors duration-300 group-hover:bg-primary/20">
                         <i class="fa-solid fa-gears text-2xl"></i>
                     </div>
-                    <div class="text-xl font-heading font-bold text-white mb-2">Platform Engineering</div>
-                    <div class="text-sm text-slate-400">Automated Infrastructure for Reliable Delivery</div>
+                    <h4 class="text-xl font-heading font-bold text-white mb-2">Platform Engineering</h4>
+                    <p class="text-sm text-slate-400">Automated Infrastructure for Reliable Delivery</p>
                 </div>
                 <div class="glow-card p-8 text-center fade-up group cursor-pointer" style="transition-delay:0.1s">
                     <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-accent/10 flex items-center justify-center text-accent icon-glow transition-colors duration-300 group-hover:bg-accent/20">
                         <i class="fa-solid fa-shield-halved text-2xl"></i>
                     </div>
-                    <div class="text-xl font-heading font-bold text-white mb-2">Data Security</div>
-                    <div class="text-sm text-slate-400">Zero-Trust Protection for Enterprise Data</div>
+                    <h4 class="text-xl font-heading font-bold text-white mb-2">Data Security</h4>
+                    <p class="text-sm text-slate-400">Zero-Trust Protection for Enterprise Data</p>
                 </div>
                 <div class="glow-card p-8 text-center fade-up group cursor-pointer" style="transition-delay:0.2s">
                     <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 icon-glow transition-colors duration-300 group-hover:bg-purple-500/20">
                         <i class="fa-solid fa-database text-2xl"></i>
                     </div>
-                    <div class="text-xl font-heading font-bold text-white mb-2">Data Protection</div>
-                    <div class="text-sm text-slate-400">Resilience and Recovery for Modern Infrastructure</div>
+                    <h4 class="text-xl font-heading font-bold text-white mb-2">Data Protection</h4>
+                    <p class="text-sm text-slate-400">Resilience and Recovery for Modern Infrastructure</p>
                 </div>
             </div>
         </div>
@@ -625,7 +638,7 @@
     </section>
 
     <!-- ===================== TECHNOLOGIES ===================== -->
-    <section id="technologies" class="py-20 bg-dark-800 border-y border-white/5 section-glow-top">
+    <section id="technologies" class="py-28 bg-dark-800/50 border-y border-white/[0.03] section-glow-top">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14 fade-up">
                 <h2 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3 flex items-center justify-center gap-3">
@@ -666,101 +679,121 @@
     </section>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer id="footer" class="bg-dark-900 pt-20 pb-10 border-t border-white/5 footer-glow relative overflow-hidden">
+    <footer id="footer" class="bg-dark-900 pt-24 pb-8 footer-glow relative overflow-hidden">
+        <!-- Background subtle glow -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-primary/[0.03] to-transparent rounded-full filter blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Top CTA strip -->
-            <div class="glow-card p-8 md:p-10 mb-16 fade-up">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h4 class="font-heading text-xl md:text-2xl font-bold text-white mb-2">Stay ahead of infrastructure trends</h4>
-                        <p class="text-slate-400 text-sm">Get monthly insights on platform engineering, security, and hybrid cloud — no spam, just signal.</p>
+            <div class="relative rounded-2xl mb-20 fade-up overflow-hidden">
+                <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-purple-500/20 bg-[length:200%_100%] animate-gradient-x"></div>
+                <div class="relative rounded-[15px] bg-dark-800/90 backdrop-blur-sm p-8 md:p-10">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h4 class="font-heading text-xl md:text-2xl font-bold text-white mb-2">Stay ahead of infrastructure trends</h4>
+                            <p class="text-slate-400 text-sm">Monthly insights on platform engineering, security, and hybrid cloud — no spam, just signal.</p>
+                        </div>
+                        <form class="flex w-full md:w-auto gap-3" onsubmit="event.preventDefault()">
+                            <input type="email" placeholder="Enter your email" class="flex-1 md:w-72 px-5 py-3.5 rounded-xl bg-dark-900/80 border border-white/[0.08] text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all">
+                            <button type="submit" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-sm hover:opacity-90 transition-all whitespace-nowrap shadow-glow">
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
-                    <form class="flex w-full md:w-auto gap-3" onsubmit="event.preventDefault()">
-                        <input type="email" placeholder="Enter your email" class="flex-1 md:w-64 px-5 py-3 rounded-full bg-dark-900 border border-white/10 text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all">
-                        <button type="submit" class="px-6 py-3 rounded-full bg-primary/20 border border-primary/40 text-primary font-medium text-sm hover:bg-primary/30 transition-all whitespace-nowrap">
-                            Subscribe
-                        </button>
-                    </form>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <span class="font-heading font-bold text-2xl tracking-tight text-white mb-6 block">
-                        we<span class="text-primary">2</span>systems
-                    </span>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                <!-- Brand column -->
+                <div class="lg:col-span-4">
+                    <div class="flex items-center mb-6">
+                        <span class="font-heading font-bold text-xl tracking-tight text-white">
+                            we<span class="text-gradient">2</span>systems
+                        </span>
+                    </div>
+                    <p class="text-slate-500 text-sm mb-8 leading-relaxed max-w-xs">
                         Architecting resilient, secure, and scalable enterprise infrastructure for the modern digital landscape.
                     </p>
                     <div class="flex space-x-3">
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="X">
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="X">
                             <i class="fa-brands fa-x-twitter"></i>
                         </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="LinkedIn">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="GitHub">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" aria-label="GitHub">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-bold mb-6 font-heading text-sm uppercase tracking-wider">Solutions</h4>
-                    <ul class="space-y-3">
+                <!-- Solutions -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold mb-6 font-heading text-xs uppercase tracking-[0.2em]">Solutions</h4>
+                    <ul class="space-y-3.5">
                         <li><a href="#focus" class="text-slate-500 hover:text-primary text-sm transition-colors">Platform Engineering</a></li>
                         <li><a href="#focus" class="text-slate-500 hover:text-primary text-sm transition-colors">Data Security</a></li>
                         <li><a href="#focus" class="text-slate-500 hover:text-primary text-sm transition-colors">Data Protection</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-bold mb-6 font-heading text-sm uppercase tracking-wider">Company</h4>
-                    <ul class="space-y-3">
+                <!-- Company -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold mb-6 font-heading text-xs uppercase tracking-[0.2em]">Company</h4>
+                    <ul class="space-y-3.5">
                         <li><a href="#why" class="text-slate-500 hover:text-primary text-sm transition-colors">Why We2Systems</a></li>
-                        <li><a href="#focus" class="text-slate-500 hover:text-primary text-sm transition-colors">What We Focus On</a></li>
+                        <li><a href="#focus" class="text-slate-500 hover:text-primary text-sm transition-colors">Our Services</a></li>
                         <li><a href="#technologies" class="text-slate-500 hover:text-primary text-sm transition-colors">Technologies</a></li>
                         <li><a href="#readiness" class="text-slate-500 hover:text-primary text-sm transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-bold mb-6 font-heading text-sm uppercase tracking-wider">Contact</h4>
+                <!-- Contact -->
+                <div class="lg:col-span-4">
+                    <h4 class="text-white font-bold mb-6 font-heading text-xs uppercase tracking-[0.2em]">Get in Touch</h4>
                     <ul class="space-y-4">
                         <li class="flex items-start">
-                            <i class="fa-solid fa-location-dot text-primary mt-1 mr-3 text-sm"></i>
-                            <span class="text-slate-500 text-sm">Jayanagar 5th Block<br>Bangalore, India</span>
+                            <div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-location-dot text-primary text-xs"></i>
+                            </div>
+                            <span class="text-slate-500 text-sm leading-relaxed">Jayanagar 5th Block<br>Bangalore, India</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa-solid fa-envelope text-primary mr-3 text-sm"></i>
+                            <div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-primary text-xs"></i>
+                            </div>
                             <a href="mailto:hello@we2systems.com" class="text-slate-500 hover:text-primary text-sm transition-colors">hello@we2systems.com</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa-solid fa-phone text-primary mr-3 text-sm"></i>
+                            <div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa-solid fa-phone text-primary text-xs"></i>
+                            </div>
                             <span class="text-slate-500 text-sm">+91 96119 11883</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-slate-600 text-sm mb-4 md:mb-0">
+            <!-- Bottom bar -->
+            <div class="border-t border-white/[0.04] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-600 text-sm">
                     &copy; 2026 we2systems. All rights reserved.
                 </p>
-                <div class="flex space-x-6">
+                <div class="flex items-center space-x-8">
                     <a href="#readiness" class="text-slate-600 hover:text-slate-400 text-sm transition-colors">Privacy Policy</a>
                     <a href="#readiness" class="text-slate-600 hover:text-slate-400 text-sm transition-colors">Terms of Service</a>
+                    <span class="text-slate-700 text-xs">Made with <i class="fa-solid fa-heart text-primary/50 text-[10px]"></i> in India</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary/20 border border-primary/30 text-primary flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-50 hover:bg-primary/30 hover:shadow-glow hover:-translate-y-0.5 backdrop-blur-sm" aria-label="Back to top">
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-11 h-11 rounded-xl bg-dark-800/80 backdrop-blur-xl border border-white/[0.08] text-slate-400 flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-50 hover:text-primary hover:border-primary/30 hover:shadow-glow hover:-translate-y-0.5" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <script src="js/main.js"></script>
 </body>
 </html>
+

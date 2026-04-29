@@ -45,9 +45,9 @@
     if (nav) {
         window.addEventListener('scroll', function () {
             if (window.scrollY > 10) {
-                nav.classList.add('shadow-lg', 'shadow-black/20');
+                nav.classList.add('shadow-lg', 'shadow-black/20', 'scrolled');
             } else {
-                nav.classList.remove('shadow-lg', 'shadow-black/20');
+                nav.classList.remove('shadow-lg', 'shadow-black/20', 'scrolled');
             }
         }, { passive: true });
     }
@@ -129,8 +129,8 @@
         }
     })();
 
-    // === Scroll-triggered animations (fade-up, fade-left, fade-right) ===
-    var animEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+    // === Scroll-triggered animations (fade-up, fade-left) ===
+    var animEls = document.querySelectorAll('.fade-up, .fade-left');
     if (animEls.length && 'IntersectionObserver' in window) {
         var animObs = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -313,9 +313,30 @@
         });
     }
 
+    // === Hero Mouse-follow Spotlight ===
+    (function initHeroSpotlight() {
+        var heroSection = document.getElementById('hero');
+        var spotlight = document.getElementById('hero-spotlight');
+        if (!heroSection || !spotlight) return;
+
+        heroSection.addEventListener('mousemove', function (e) {
+            var rect = heroSection.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            spotlight.style.setProperty('--hero-mouse-x', x + 'px');
+            spotlight.style.setProperty('--hero-mouse-y', y + 'px');
+            if (!spotlight.classList.contains('active')) {
+                spotlight.classList.add('active');
+            }
+        });
+        heroSection.addEventListener('mouseleave', function () {
+            spotlight.classList.remove('active');
+        });
+    })();
+
     // === Active Nav Section Highlight ===
     (function initActiveNav() {
-        var navLinks = document.querySelectorAll('#header .hidden.md\\:flex a[href^="#"]');
+        var navLinks = document.querySelectorAll('#header .hidden.md\\:flex a[href^="#"]:not([class*="bg-gradient"])');
         var sections = [];
         navLinks.forEach(function (link) {
             var id = link.getAttribute('href');
