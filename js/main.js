@@ -44,7 +44,7 @@
     // === Nav shadow on scroll ===
     if (nav) {
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 10) {
+            if (window.scrollY > 60) {
                 nav.classList.add('shadow-lg', 'shadow-black/20', 'scrolled');
             } else {
                 nav.classList.remove('shadow-lg', 'shadow-black/20', 'scrolled');
@@ -172,20 +172,23 @@
         var counters = document.querySelectorAll('.stat-number');
         if (!counters.length) return;
 
+        function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+
         function animateCounter(el) {
             var target = parseFloat(el.dataset.target);
             var suffix = el.dataset.suffix || '';
-            var isDecimal = el.dataset.decimal === 'true';
+            var decimals = parseInt(el.dataset.decimals) || 0;
             var duration = 2000;
             var start = performance.now();
 
             function update(now) {
                 var elapsed = now - start;
                 var progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
-                var ease = 1 - Math.pow(1 - progress, 3);
+                var ease = easeOutExpo(progress);
                 var current = ease * target;
-                el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                el.textContent = (decimals > 0 ? current.toFixed(decimals) : Math.floor(current)) + suffix;
                 if (progress < 1) requestAnimationFrame(update);
             }
             requestAnimationFrame(update);
@@ -334,30 +337,88 @@
         });
     })();
 
-    // === Active Nav Section Highlight ===
+    // === Active Nav Section Highlight (IntersectionObserver) ===
     (function initActiveNav() {
+        var sectionIds = ['hero', 'focus', 'process', 'technologies', 'why', 'readiness'];
         var navLinks = document.querySelectorAll('#header .hidden.md\\:flex a[href^="#"]:not([class*="bg-gradient"])');
-        var sections = [];
+        var linkMap = {};
         navLinks.forEach(function (link) {
-            var id = link.getAttribute('href');
-            if (id && id !== '#') {
-                var sec = document.querySelector(id);
-                if (sec) sections.push({ el: sec, link: link });
-            }
+            var href = link.getAttribute('href');
+            if (href) linkMap[href.replace('#', '')] = link;
         });
-        if (!sections.length) return;
 
-        function updateActive() {
-            var scrollY = window.scrollY + 120;
-            var active = null;
-            sections.forEach(function (s) {
-                if (s.el.offsetTop <= scrollY) active = s;
+        var currentActive = null;
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var id = entry.target.id;
+                if (entry.isIntersecting) {
+                    navLinks.forEach(function (l) { l.classList.remove('nav-link-active'); });
+                    if (linkMap[id]) {
+                        linkMap[id].classList.add('nav-link-active');
+                        currentActive = id;
+                    }
+                }
             });
-            navLinks.forEach(function (l) { l.classList.remove('nav-link-active'); });
-            if (active) active.link.classList.add('nav-link-active');
-        }
-        window.addEventListener('scroll', updateActive, { passive: true });
-        updateActive();
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+        sectionIds.forEach(function (id) {
+            var sec = document.getElementById(id);
+            if (sec) observer.observe(sec);
+        });
+    })();
+
+    // === Contact Form Validation ===
+    (function initContactForm() {
+        var form = document.getElementById('contact-form');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var inputs = form.querySelectorAll('.contact-input');
+            var valid = true;
+
+            inputs.forEach(function (input) {
+                input.classList.remove('error');
+                var val = input.value.trim();
+                if (!val) {
+                    input.classList.add('error');
+                    valid = false;
+                }
+                // Email format check
+                if (input.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                    input.classList.add('error');
+                    valid = false;
+                }
+            });
+
+            if (!valid) return;
+
+            // Collect form data
+            var name = form.querySelector('#cf-name').value.trim();
+            var company = form.querySelector('#cf-company').value.trim();
+            var email = form.querySelector('#cf-email').value.trim();
+            var message = form.querySelector('#cf-message').value.trim();
+
+            // Show success message immediately
+            var wrapper = document.getElementById('contact-form-wrapper');
+            wrapper.innerHTML = '<div id="contact-success" class="text-center py-8"><div class="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/20 flex items-center justify-center"><i class="fa-solid fa-check text-primary text-2xl"></i></div><h4 class="font-heading text-2xl font-bold text-white mb-2">Thanks!</h4><p class="text-slate-400 text-lg">We\u2019ll reach out within 1 business day.</p></div>';
+
+            // TODO: Replace with actual backend API call (e.g., POST /api/contact)
+            // Trigger mailto after a short delay so user sees the success message
+            setTimeout(function () {
+                var subject = encodeURIComponent('Infrastructure Assessment Request — ' + company);
+                var body = encodeURIComponent('Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\n\nChallenge:\n' + message);
+                window.location.href = 'mailto:hello@we2systems.com?subject=' + subject + '&body=' + body;
+            }, 500);
+        });
+
+        // Remove error on input
+        form.querySelectorAll('.contact-input').forEach(function (input) {
+            input.addEventListener('input', function () {
+                input.classList.remove('error');
+            });
+        });
     })();
 
 })();
