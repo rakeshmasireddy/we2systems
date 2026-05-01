@@ -176,37 +176,49 @@
             return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
         }
 
-        function animateCounter(el) {
-            var target = parseFloat(el.dataset.target);
-            var suffix = el.dataset.suffix || '';
-            var decimals = parseInt(el.dataset.decimals) || 0;
-            var duration = 2000;
-            var start = performance.now();
+        function animateCounter(element, startVal, targetValue, duration) {
+            var decimals = parseInt(element.dataset.decimals) || 0;
+            var suffix = element.dataset.suffix || '';
+            var startTime = performance.now();
 
             function update(now) {
-                var elapsed = now - start;
+                var elapsed = now - startTime;
                 var progress = Math.min(elapsed / duration, 1);
                 var ease = easeOutExpo(progress);
-                var current = ease * target;
-                el.textContent = (decimals > 0 ? current.toFixed(decimals) : Math.floor(current)) + suffix;
+                var current = startVal + (targetValue - startVal) * ease;
+                element.textContent = (decimals > 0 ? current.toFixed(decimals) : Math.floor(current)) + suffix;
                 if (progress < 1) requestAnimationFrame(update);
             }
             requestAnimationFrame(update);
         }
 
-        if ('IntersectionObserver' in window) {
-            var counterObs = new IntersectionObserver(function (entries) {
+        counters.forEach(function (element) {
+            // Static counters (e.g. 24/7) — no animation
+            if (element.dataset.static) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            element.textContent = element.dataset.static;
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                observer.observe(element);
+                return;
+            }
+
+            // Animated counters
+            var targetValue = parseFloat(element.dataset.target);
+            var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        counterObs.unobserve(entry.target);
+                        animateCounter(element, 0, targetValue, 2000);
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.5 });
-            counters.forEach(function (c) { counterObs.observe(c); });
-        } else {
-            counters.forEach(animateCounter);
-        }
+            }, { threshold: 0.3 });
+            observer.observe(element);
+        });
     })();
 
     // === Particle Network Canvas ===
@@ -299,19 +311,17 @@
         }
     })();
 
-    // === Back to Top Button ===
-    var backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
+    // === Scroll to Top Button ===
+    var scrollTopBtn = document.getElementById('scrollTop');
+    if (scrollTopBtn) {
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 600) {
-                backToTop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTop.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
             } else {
-                backToTop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTop.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                scrollTopBtn.classList.remove('visible');
             }
         }, { passive: true });
-        backToTop.addEventListener('click', function () {
+        scrollTopBtn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
@@ -373,9 +383,10 @@
         var form = document.getElementById('contact-form');
         if (!form) return;
 
+        var inputs = form.querySelectorAll('.contact-input');
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            var inputs = form.querySelectorAll('.contact-input');
             var valid = true;
 
             inputs.forEach(function (input) {
@@ -385,7 +396,6 @@
                     input.classList.add('error');
                     valid = false;
                 }
-                // Email format check
                 if (input.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
                     input.classList.add('error');
                     valid = false;
@@ -395,26 +405,31 @@
             if (!valid) return;
 
             // Collect form data
-            var name = form.querySelector('#cf-name').value.trim();
-            var company = form.querySelector('#cf-company').value.trim();
-            var email = form.querySelector('#cf-email').value.trim();
-            var message = form.querySelector('#cf-message').value.trim();
+            var name = form.querySelector('[name="name"]').value.trim();
+            var company = form.querySelector('[name="company"]').value.trim();
+            var email = form.querySelector('[name="email"]').value.trim();
+            var challenge = form.querySelector('[name="challenge"]').value.trim();
 
-            // Show success message immediately
-            var wrapper = document.getElementById('contact-form-wrapper');
-            wrapper.innerHTML = '<div id="contact-success" class="text-center py-8"><div class="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/20 flex items-center justify-center"><i class="fa-solid fa-check text-primary text-2xl"></i></div><h4 class="font-heading text-2xl font-bold text-white mb-2">Thanks!</h4><p class="text-slate-400 text-lg">We\u2019ll reach out within 1 business day.</p></div>';
+            // Hide form, show success
+            form.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
 
             // TODO: Replace with actual backend API call (e.g., POST /api/contact)
-            // Trigger mailto after a short delay so user sees the success message
+            // Mailto fallback after short delay so user sees the success message
             setTimeout(function () {
                 var subject = encodeURIComponent('Infrastructure Assessment Request — ' + company);
-                var body = encodeURIComponent('Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\n\nChallenge:\n' + message);
+                var body = encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'Company: ' + company + '\n' +
+                    'Email: ' + email + '\n\n' +
+                    'Challenge:\n' + challenge
+                );
                 window.location.href = 'mailto:hello@we2systems.com?subject=' + subject + '&body=' + body;
-            }, 500);
+            }, 600);
         });
 
-        // Remove error on input
-        form.querySelectorAll('.contact-input').forEach(function (input) {
+        // Remove error + shake on input
+        inputs.forEach(function (input) {
             input.addEventListener('input', function () {
                 input.classList.remove('error');
             });
