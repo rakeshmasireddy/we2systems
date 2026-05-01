@@ -3,7 +3,7 @@
     const menu = document.getElementById('mobile-menu');
     const nav = document.getElementById('header');
 
-    // === Smooth scrolling ===
+    // == Smooth scrolling ==
     function scrollToAnchor(target) {
         if (!target) return;
         const headerOffset = nav ? nav.offsetHeight + 8 : 0;
