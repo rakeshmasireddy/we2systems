@@ -326,6 +326,27 @@
         });
     }
 
+    // === Sticky Fast-Action CTA Bar ===
+    (function initFastActionBar() {
+        var bar = document.getElementById('fast-action-bar');
+        var hero = document.getElementById('hero');
+        if (!bar || !hero) return;
+
+        var heroObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    // User is in hero — hide the bar
+                    bar.classList.remove('visible');
+                } else {
+                    // User has scrolled past hero — show the bar
+                    bar.classList.add('visible');
+                }
+            });
+        }, { threshold: 0 });
+
+        heroObserver.observe(hero);
+    })();
+
     // === Hero Mouse-follow Spotlight ===
     (function initHeroSpotlight() {
         var heroSection = document.getElementById('hero');
@@ -434,6 +455,91 @@
                 input.classList.remove('error');
             });
         });
+    })();
+
+    // === Scrollytelling: piece-by-piece SVG build animations ===
+    (function initScrollytelling() {
+        var triggers = document.querySelectorAll('.scrolly-trigger');
+        if (!triggers.length) return;
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target;
+                    // Apply staggered transition-delay to each piece based on data-delay
+                    var pieces = el.querySelectorAll('.scrolly-piece');
+                    pieces.forEach(function (piece) {
+                        var delay = parseInt(piece.getAttribute('data-delay')) || 0;
+                        piece.style.transitionDelay = delay + 'ms';
+                    });
+                    // Trigger the animation
+                    el.classList.add('active');
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        triggers.forEach(function (t) { observer.observe(t); });
+    })();
+
+    // === Service Card 3D Tilt on Mouse Move ===
+    (function initCardTilt() {
+        var cards = document.querySelectorAll('.service-card');
+        if (!cards.length) return;
+        var maxTilt = 6; // degrees
+
+        cards.forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+                var rotateY = ((x - centerX) / centerX) * maxTilt;
+                var rotateX = ((centerY - y) / centerY) * maxTilt;
+                card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                card.style.transform = '';
+            });
+        });
+    })();
+
+    // === Live Infrastructure Status Widget ===
+    (function initStatusWidget() {
+        var barContainers = ['api-bars', 'infra-bars', 'auth-bars'];
+        var barCount = 12;
+
+        // Generate simulated uptime bars for each service
+        barContainers.forEach(function (id) {
+            var container = document.getElementById(id);
+            if (!container) return;
+            for (var i = 0; i < barCount; i++) {
+                var bar = document.createElement('div');
+                bar.className = 'status-bar';
+                // Simulate realistic uptime: mostly 100%, occasional dips
+                var h = Math.random() > 0.1 ? 12 + Math.random() * 4 : 6 + Math.random() * 4;
+                bar.style.height = h + 'px';
+                bar.style.opacity = h > 10 ? '0.7' : '0.4';
+                if (h < 8) bar.style.background = '#fbbf24'; // amber for degraded
+                container.appendChild(bar);
+            }
+        });
+
+        // Update "last check" time every 30s
+        var timeEl = document.getElementById('status-time');
+        if (timeEl) {
+            var seconds = 0;
+            setInterval(function () {
+                seconds += 30;
+                if (seconds < 60) {
+                    timeEl.textContent = seconds + 's ago';
+                } else {
+                    timeEl.textContent = Math.floor(seconds / 60) + 'm ago';
+                }
+            }, 30000);
+        }
     })();
 
 })();
