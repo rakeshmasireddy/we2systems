@@ -340,14 +340,17 @@ body {
 .glow-card::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -2px;
     border-radius: inherit;
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(14, 165, 233, 0.08), transparent 40%);
+    background: radial-gradient(
+        600px circle at 50% 50%,
+        rgba(14, 165, 233, 0.18),
+        transparent 70%
+    );
     opacity: 0;
-    transition: opacity 0.5s ease;
+    z-index: -1;
     pointer-events: none;
-    z-index: 0;
+    transition: opacity 0.3s ease;
 }
 .glow-card:hover::before { opacity: 1; }
 .glow-card:hover {
@@ -1295,5 +1298,106 @@ section + .section-glow-top::before {
         margin-left: auto !important;
         margin-right: auto !important;
     }
+}
+
+
+/* ==============================================
+   1. KINETIC TYPOGRAPHY — Hero H1
+   Scales aggressively with vw on ultrawide
+   ============================================== */
+.hero-kinetic-h1 {
+    font-size: clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
+}
+@media (min-width: 1600px) {
+    .hero-kinetic-h1 {
+        font-size: clamp(4rem, 2vw + 3rem, 6.5rem);
+        letter-spacing: -0.03em;
+    }
+}
+@media (min-width: 2200px) {
+    .hero-kinetic-h1 {
+        font-size: clamp(5rem, 3vw + 2rem, 8rem);
+        letter-spacing: -0.04em;
+    }
+}
+
+/* ==============================================
+   2. MINI TERMINAL — Platform Engineering card
+   ============================================== */
+.mini-terminal {
+    background: #0a0e1a;
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+.mini-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.mini-terminal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+.mini-terminal-title {
+    font-size: 10px;
+    color: rgba(148, 163, 184, 0.5);
+    margin-left: 8px;
+}
+.mini-terminal-body {
+    padding: 10px 14px;
+    font-size: 10.5px;
+    line-height: 1.65;
+    color: #94a3b8;
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+.mini-t-prompt {
+    color: #22c55e;
+    font-weight: 600;
+}
+.mini-t-muted {
+    color: #475569;
+}
+.mini-t-ok {
+    color: #34d399;
+}
+
+/* ==============================================
+   3. SCROLL-TRIGGERED GLOW — Cards pulse once
+   ============================================== */
+.glow-card {
+    position: relative;
+}
+.glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: radial-gradient(
+        600px circle at 50% 50%,
+        rgba(14, 165, 233, 0.18),
+        transparent 70%
+    );
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.fade-up.visible .glow-card::before,
+.fade-left.visible .glow-card::before {
+    animation: scroll-glow-pulse 1.2s ease-out forwards;
+}
+@keyframes scroll-glow-pulse {
+    0% { opacity: 0; transform: scale(0.95); }
+    40% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0; transform: scale(1); }
 }
 

@@ -271,7 +271,7 @@
                         Enterprise Infrastructure Engineering
                         <i class="fa-solid fa-sparkles ml-2 text-xs text-accent/60"></i>
                     </div>
-                    <h1 class="font-heading font-bold tracking-tight text-white leading-[1.1] mb-6" style="font-size: clamp(2.5rem, 2rem + 4vw, 4.5rem);">
+                    <h1 class="font-heading font-bold tracking-tight text-white leading-[1.1] mb-6 hero-kinetic-h1">
                         <span class="hero-words">
                             <span class="hero-word">Hybrid</span>
                             <span class="hero-word">is</span>
@@ -542,6 +542,22 @@
                                     <line x1="168" y1="104" x2="196" y2="72" stroke="#0ea5e9" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.4"/>
                                 </g>
                             </svg>
+                        </div>
+                        <!-- Mini Terminal — engineering credibility -->
+                        <div class="mini-terminal mx-8 mb-6">
+                            <div class="mini-terminal-bar">
+                                <span class="mini-terminal-dot" style="background:#ef4444"></span>
+                                <span class="mini-terminal-dot" style="background:#f59e0b"></span>
+                                <span class="mini-terminal-dot" style="background:#22c55e"></span>
+                                <span class="mini-terminal-title">kubectl — prod-cluster</span>
+                            </div>
+                            <pre class="mini-terminal-body"><span class="mini-t-prompt">$</span> kubectl get nodes -o wide
+<span class="mini-t-muted">NAME              STATUS   ROLES    AGE   VERSION</span>
+<span class="mini-t-ok">node-01           Ready    master   142d  v1.29.3</span>
+<span class="mini-t-ok">node-02           Ready    worker   142d  v1.29.3</span>
+<span class="mini-t-ok">node-03           Ready    worker   98d   v1.29.3</span>
+<span class="mini-t-prompt">$</span> terraform plan <span class="mini-t-muted">-var-file=prod.tfvars</span>
+<span class="mini-t-ok">Plan: 0 to add, 0 to change, 0 to destroy.</span></pre>
                         </div>
                     </div>
                     <!-- Right: Text Content -->
