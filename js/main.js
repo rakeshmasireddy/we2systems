@@ -41,13 +41,13 @@
         });
     }
 
-    // === Nav shadow on scroll ===
+    // === Nav shadow on scroll + header-active ===
     if (nav) {
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 60) {
-                nav.classList.add('shadow-lg', 'shadow-black/20', 'scrolled');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'shadow-black/20', 'scrolled', 'header-active');
             } else {
-                nav.classList.remove('shadow-lg', 'shadow-black/20', 'scrolled');
+                nav.classList.remove('shadow-lg', 'shadow-black/20', 'scrolled', 'header-active');
             }
         }, { passive: true });
     }
@@ -431,8 +431,9 @@
             var email = form.querySelector('[name="email"]').value.trim();
             var challenge = form.querySelector('[name="challenge"]').value.trim();
 
-            // Hide form, show success
-            form.style.display = 'none';
+            // Hide wizard, show success
+            var wizard = document.getElementById('assessment-wizard');
+            if (wizard) wizard.style.display = 'none';
             document.getElementById('form-success').style.display = 'block';
 
             // TODO: Replace with actual backend API call (e.g., POST /api/contact)
@@ -480,6 +481,29 @@
         }, { threshold: 0.3 });
 
         triggers.forEach(function (t) { observer.observe(t); });
+    })();
+
+    // === Process Path — Scroll-triggered line + node animation ===
+    (function initProcessPath() {
+        var pathLine = document.getElementById('process-path');
+        var processGrid = document.getElementById('process-grid');
+        if (!pathLine || !processGrid) return;
+
+        var nodes = processGrid.querySelectorAll('.process-path-node');
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    pathLine.classList.add('active');
+                    nodes.forEach(function (node, i) {
+                        setTimeout(function () {
+                            node.classList.add('lit');
+                        }, 400 + i * 350);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+        observer.observe(processGrid);
     })();
 
     // === Service Card 3D Tilt on Mouse Move ===
