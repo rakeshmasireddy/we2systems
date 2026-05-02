@@ -483,22 +483,16 @@
         triggers.forEach(function (t) { observer.observe(t); });
     })();
 
-    // === Process Path — Scroll-triggered line + node animation ===
+    // === Process Path — Scroll-triggered line animation ===
     (function initProcessPath() {
         var pathLine = document.getElementById('process-path');
         var processGrid = document.getElementById('process-grid');
         if (!pathLine || !processGrid) return;
 
-        var nodes = processGrid.querySelectorAll('.process-path-node');
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     pathLine.classList.add('active');
-                    nodes.forEach(function (node, i) {
-                        setTimeout(function () {
-                            node.classList.add('lit');
-                        }, 400 + i * 350);
-                    });
                     observer.unobserve(entry.target);
                 }
             });
