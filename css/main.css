@@ -433,6 +433,7 @@ body {
 .marquee-track {
     animation: marquee 30s linear infinite;
     width: max-content;
+    will-change: transform;
 }
 .marquee-wrap:hover .marquee-track {
     animation-play-state: paused;
@@ -518,26 +519,36 @@ body {
     background: linear-gradient(90deg, transparent, rgba(14,165,233,0.2), transparent);
 }
 
-/* --- Partner logos --- */
+/* --- Partner logos (grayscale → color on hover) --- */
 .marquee-logo {
     height: 38px;
     width: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.8;
-    transition: opacity 300ms ease, filter 300ms ease;
+    filter: grayscale(1) brightness(0.7);
+    opacity: 0.5;
+    transition: opacity 400ms ease, filter 400ms ease, transform 400ms ease;
+    will-change: filter, opacity;
 }
 .marquee-logo:hover {
     opacity: 1;
-    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.15));
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.08);
 }
-/* Veeam & Kubernetes have multi-color fills — show original colors brightened */
+.marquee-wrap:hover .marquee-logo {
+    opacity: 0.65;
+    filter: grayscale(0.5) brightness(0.85);
+}
+.marquee-wrap:hover .marquee-logo:hover {
+    opacity: 1;
+    filter: grayscale(0) brightness(1);
+}
+/* Color logos keep same grayscale treatment */
 .marquee-logo-color {
-    filter: brightness(1.8) saturate(0.7);
-    opacity: 0.85;
+    filter: grayscale(1) brightness(0.7);
+    opacity: 0.5;
 }
 .marquee-logo-color:hover {
-    filter: brightness(2) saturate(1);
+    filter: grayscale(0) brightness(1) saturate(1.1);
     opacity: 1;
 }
 
@@ -925,3 +936,160 @@ footer ul a:hover::after {
     background: #34d399;
     transition: height 400ms ease;
 }
+
+/* --- Multi-Step Assessment Wizard --- */
+.assessment-step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(14, 22, 50, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(148, 163, 184, 0.5);
+    transition: all 0.4s cubic-bezier(.16,1,.3,1);
+    flex-shrink: 0;
+}
+.assessment-step-dot.active {
+    border-color: #0ea5e9;
+    color: #0ea5e9;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    background: rgba(14, 165, 233, 0.1);
+}
+.assessment-step-dot.done {
+    border-color: #34d399;
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.1);
+}
+.assessment-step-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+}
+.assessment-step-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    border-radius: 1px;
+    transition: width 0.5s cubic-bezier(.16,1,.3,1);
+}
+.assessment-step-line.filled::after {
+    width: 100%;
+}
+.assessment-panel {
+    display: none;
+    animation: assess-fade-in 0.4s ease forwards;
+}
+.assessment-panel.active {
+    display: block;
+}
+@keyframes assess-fade-in {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.assessment-option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+    border-radius: 12px;
+    background: rgba(10, 17, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.assessment-option-card:hover {
+    border-color: rgba(14, 165, 233, 0.3);
+    background: rgba(14, 165, 233, 0.05);
+}
+.assessment-option input:checked + .assessment-option-card {
+    border-color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.1);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+.assessment-check-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(10, 17, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.assessment-check-card:hover {
+    border-color: rgba(14, 165, 233, 0.25);
+}
+.assessment-check-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+.assessment-checkbox input:checked + .assessment-check-card {
+    border-color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.08);
+}
+.assessment-checkbox input:checked + .assessment-check-card .assessment-check-box {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: white;
+}
+.assessment-next-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    color: white;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+.assessment-next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.35);
+}
+.assessment-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    color: #94a3b8;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.assessment-back-btn:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+

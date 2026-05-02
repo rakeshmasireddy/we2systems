@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -65,7 +65,7 @@
                     fontFamily: {
                         sans: ['Inter', 'Helvetica Neue', 'sans-serif'],
                         heading: ['Space Grotesk', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
                     },
                     colors: {
                         primary: '#0ea5e9',
@@ -1051,21 +1051,131 @@
                             </span>
                         </div>
 
-                        <!-- TODO: Replace mailto fallback with backend API endpoint for production -->
-                        <form id="contact-form" class="max-w-xl mx-auto text-left" novalidate>
-                            <div class="form-row">
-                                <input type="text" name="name" placeholder="Your name" required class="contact-input">
-                                <input type="text" name="company" placeholder="Company" required class="contact-input">
+                        <!-- Multi-step Infrastructure Readiness Assessment -->
+                        <div id="assessment-wizard" class="max-w-xl mx-auto text-left">
+                            <!-- Progress bar -->
+                            <div class="flex items-center justify-between mb-8">
+                                <div class="flex items-center gap-2 w-full">
+                                    <div class="assessment-step-dot active" data-step="1"><span>1</span></div>
+                                    <div class="assessment-step-line" data-line="1"></div>
+                                    <div class="assessment-step-dot" data-step="2"><span>2</span></div>
+                                    <div class="assessment-step-line" data-line="2"></div>
+                                    <div class="assessment-step-dot" data-step="3"><span>3</span></div>
+                                </div>
                             </div>
-                            <input type="email" name="email" placeholder="Work email" required class="contact-input">
-                            <textarea name="challenge" rows="3" placeholder="What are you trying to solve?" required class="contact-input"></textarea>
-                            <div class="text-center pt-2">
-                                <button type="submit" class="inline-flex items-center justify-center px-10 py-4 text-base font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent shadow-glow btn-glow-pulse transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-lg w-full sm:w-auto">
-                                    Request Free Assessment
-                                    <i class="fa-solid fa-arrow-right ml-2.5"></i>
+
+                            <!-- Step 1: Infrastructure Profile -->
+                            <div class="assessment-panel active" data-panel="1">
+                                <p class="text-xs font-mono text-primary/70 uppercase tracking-wider mb-3">Step 1 of 3 — Infrastructure Profile</p>
+                                <h4 class="font-heading text-lg font-bold text-white mb-5">What best describes your environment?</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                    <label class="assessment-option">
+                                        <input type="radio" name="infra_type" value="on-prem" class="sr-only">
+                                        <div class="assessment-option-card">
+                                            <i class="fa-solid fa-server text-primary text-lg mb-2"></i>
+                                            <span class="text-sm font-medium text-white">Primarily On-Prem</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-option">
+                                        <input type="radio" name="infra_type" value="hybrid" class="sr-only">
+                                        <div class="assessment-option-card">
+                                            <i class="fa-solid fa-cloud text-accent text-lg mb-2"></i>
+                                            <span class="text-sm font-medium text-white">Hybrid Cloud</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-option">
+                                        <input type="radio" name="infra_type" value="multi-cloud" class="sr-only">
+                                        <div class="assessment-option-card">
+                                            <i class="fa-solid fa-layer-group text-purple-400 text-lg mb-2"></i>
+                                            <span class="text-sm font-medium text-white">Multi-Cloud</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-option">
+                                        <input type="radio" name="infra_type" value="migrating" class="sr-only">
+                                        <div class="assessment-option-card">
+                                            <i class="fa-solid fa-arrows-rotate text-emerald-400 text-lg mb-2"></i>
+                                            <span class="text-sm font-medium text-white">Planning Migration</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <button type="button" class="assessment-next-btn" onclick="assessmentNext(2)">
+                                    Continue <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                                 </button>
                             </div>
-                        </form>
+
+                            <!-- Step 2: Challenges -->
+                            <div class="assessment-panel" data-panel="2">
+                                <p class="text-xs font-mono text-primary/70 uppercase tracking-wider mb-3">Step 2 of 3 — Key Challenges</p>
+                                <h4 class="font-heading text-lg font-bold text-white mb-5">What are your top priorities?</h4>
+                                <div class="space-y-3 mb-6">
+                                    <label class="assessment-checkbox">
+                                        <input type="checkbox" name="challenges" value="security" class="sr-only">
+                                        <div class="assessment-check-card">
+                                            <div class="assessment-check-box"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <span class="text-sm text-slate-300">Strengthening security posture / Zero Trust</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-checkbox">
+                                        <input type="checkbox" name="challenges" value="backup" class="sr-only">
+                                        <div class="assessment-check-card">
+                                            <div class="assessment-check-box"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <span class="text-sm text-slate-300">Backup & disaster recovery improvements</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-checkbox">
+                                        <input type="checkbox" name="challenges" value="kubernetes" class="sr-only">
+                                        <div class="assessment-check-card">
+                                            <div class="assessment-check-box"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <span class="text-sm text-slate-300">Kubernetes / container orchestration</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-checkbox">
+                                        <input type="checkbox" name="challenges" value="automation" class="sr-only">
+                                        <div class="assessment-check-card">
+                                            <div class="assessment-check-box"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <span class="text-sm text-slate-300">Infrastructure automation & IaC</span>
+                                        </div>
+                                    </label>
+                                    <label class="assessment-checkbox">
+                                        <input type="checkbox" name="challenges" value="cost" class="sr-only">
+                                        <div class="assessment-check-card">
+                                            <div class="assessment-check-box"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <span class="text-sm text-slate-300">Cost optimization & resource efficiency</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex gap-3">
+                                    <button type="button" class="assessment-back-btn" onclick="assessmentNext(1)">
+                                        <i class="fa-solid fa-arrow-left mr-2 text-xs"></i> Back
+                                    </button>
+                                    <button type="button" class="assessment-next-btn flex-1" onclick="assessmentNext(3)">
+                                        Continue <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Contact Details -->
+                            <div class="assessment-panel" data-panel="3">
+                                <p class="text-xs font-mono text-primary/70 uppercase tracking-wider mb-3">Step 3 of 3 — Your Details</p>
+                                <h4 class="font-heading text-lg font-bold text-white mb-5">Where should we send the assessment?</h4>
+                                <form id="contact-form" class="space-y-4" novalidate>
+                                    <div class="form-row">
+                                        <input type="text" name="name" placeholder="Your name" required class="contact-input">
+                                        <input type="text" name="company" placeholder="Company" required class="contact-input">
+                                    </div>
+                                    <input type="email" name="email" placeholder="Work email" required class="contact-input">
+                                    <textarea name="challenge" rows="2" placeholder="Anything else we should know? (optional)" class="contact-input"></textarea>
+                                    <div class="flex gap-3">
+                                        <button type="button" class="assessment-back-btn" onclick="assessmentNext(2)">
+                                            <i class="fa-solid fa-arrow-left mr-2 text-xs"></i> Back
+                                        </button>
+                                        <button type="submit" class="assessment-next-btn flex-1 bg-gradient-to-r from-primary to-accent shadow-glow btn-glow-pulse">
+                                            Request Free Assessment <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <div id="form-success" class="text-center py-10" style="display:none">
                             <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/20 flex items-center justify-center">
                                 <i class="fa-solid fa-circle-check text-primary text-3xl"></i>
@@ -1261,6 +1371,27 @@
 
     <script src="js/main.js"></script>
     <script>
+        // === Assessment Wizard Navigation ===
+        function assessmentNext(step) {
+            var panels = document.querySelectorAll('.assessment-panel');
+            var dots = document.querySelectorAll('.assessment-step-dot');
+            var lines = document.querySelectorAll('.assessment-step-line');
+
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            document.querySelector('[data-panel="' + step + '"]').classList.add('active');
+
+            dots.forEach(function(d, i) {
+                var s = i + 1;
+                d.classList.remove('active', 'done');
+                if (s === step) d.classList.add('active');
+                else if (s < step) d.classList.add('done');
+            });
+
+            lines.forEach(function(l, i) {
+                if (i + 1 < step) l.classList.add('filled');
+                else l.classList.remove('filled');
+            });
+        }
         // TODO: Replace modal content with real legal pages when they exist
         function openLegalModal(type) {
             var title = document.getElementById('modal-title');
