@@ -1401,3 +1401,105 @@ section + .section-glow-top::before {
     100% { opacity: 0; transform: scale(1); }
 }
 
+/* ==============================================
+   4. LIVE STATUS — Pulsing glow indicator
+   ============================================== */
+.live-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+    animation: live-pulse 2s ease-in-out infinite;
+}
+.live-dot::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: rgba(52, 211, 153, 0.3);
+    animation: live-ring 2s ease-in-out infinite;
+}
+@keyframes live-pulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(52, 211, 153, 0.6); transform: scale(1); }
+    50% { box-shadow: 0 0 14px rgba(52, 211, 153, 0.9), 0 0 30px rgba(52, 211, 153, 0.3); transform: scale(1.15); }
+}
+@keyframes live-ring {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ==============================================
+   5. TERMINAL COPY BUTTON
+   ============================================== */
+.terminal-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #64748b;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+.terminal-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+.terminal-copy-btn.copied {
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.3);
+    background: rgba(52, 211, 153, 0.08);
+}
+
+/* ==============================================
+   6. MOBILE TERMINAL RESPONSIVENESS
+   ============================================== */
+@media (max-width: 640px) {
+    #terminal-body {
+        font-size: 11px;
+        padding: 12px 10px;
+        min-height: 220px !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .hero-floating-terminal {
+        margin: 0 -8px;
+    }
+    .mini-terminal-body {
+        font-size: 9px;
+        padding: 8px 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mini-terminal {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* ==============================================
+   7. ASSESSMENT STEP CHECKMARK (done state)
+   ============================================== */
+.assessment-step-dot.done span {
+    display: none;
+}
+.assessment-step-dot.done::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid #34d399;
+    border-bottom: 2px solid #34d399;
+    transform: rotate(-45deg) translateY(-1px);
+}

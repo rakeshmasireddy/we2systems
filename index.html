@@ -330,11 +330,15 @@
                                 <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
                                 <span class="ml-3 text-xs text-slate-500 font-mono">we2systems — health-check</span>
                                 <span class="ml-auto flex items-center gap-1.5">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span class="live-dot"></span>
                                     <span class="text-[10px] font-mono text-emerald-400/70">LIVE</span>
                                 </span>
                             </div>
-                            <div id="terminal-body" class="px-5 py-5 font-mono text-sm leading-relaxed min-h-[260px] sm:min-h-[280px]"></div>
+                            <div id="terminal-body" class="relative px-5 py-5 font-mono text-sm leading-relaxed min-h-[260px] sm:min-h-[280px]">
+                                <button type="button" class="terminal-copy-btn" title="Copy to clipboard" onclick="copyTerminal(this)">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -544,12 +548,15 @@
                             </svg>
                         </div>
                         <!-- Mini Terminal — engineering credibility -->
-                        <div class="mini-terminal mx-8 mb-6">
+                        <div class="mini-terminal mx-8 mb-6 relative">
                             <div class="mini-terminal-bar">
                                 <span class="mini-terminal-dot" style="background:#ef4444"></span>
                                 <span class="mini-terminal-dot" style="background:#f59e0b"></span>
                                 <span class="mini-terminal-dot" style="background:#22c55e"></span>
                                 <span class="mini-terminal-title">kubectl — prod-cluster</span>
+                                <button type="button" class="terminal-copy-btn" style="position:relative;top:auto;right:auto;margin-left:auto;" title="Copy to clipboard" onclick="copyTerminal(this)">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
                             </div>
                             <pre class="mini-terminal-body"><span class="mini-t-prompt">$</span> kubectl get nodes -o wide
 <span class="mini-t-muted">NAME              STATUS   ROLES    AGE   VERSION</span>
@@ -1409,6 +1416,22 @@
 
     <script src="js/main.js"></script>
     <script>
+        // === Copy Terminal Content ===
+        function copyTerminal(btn) {
+            var container = btn.closest('.relative') || btn.parentElement.parentElement;
+            var body = container.querySelector('#terminal-body, .mini-terminal-body');
+            if (!body) return;
+            var text = body.innerText || body.textContent;
+            navigator.clipboard.writeText(text.trim()).then(function() {
+                btn.classList.add('copied');
+                btn.querySelector('i').className = 'fa-solid fa-check';
+                setTimeout(function() {
+                    btn.classList.remove('copied');
+                    btn.querySelector('i').className = 'fa-regular fa-copy';
+                }, 2000);
+            });
+        }
+
         // === Assessment Wizard Navigation ===
         function assessmentNext(step) {
             var panels = document.querySelectorAll('.assessment-panel');
