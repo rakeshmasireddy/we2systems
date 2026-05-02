@@ -68,14 +68,14 @@
         if (!termBody) return;
 
         var lines = [
-            { prompt: '$ ', cmd: 'kubectl apply -f platform/cluster.yaml', delay: 0 },
-            { output: '<span class="text-green-400">✓</span> <span class="text-slate-400">cluster/production configured — 24 nodes ready</span>', delay: 800 },
-            { prompt: '$ ', cmd: 'w2s security scan --policy zero-trust', delay: 1600 },
-            { output: '<span class="text-green-400">✓</span> <span class="text-slate-400">zero-trust policy applied — 0 vulnerabilities found</span>', delay: 2400 },
-            { prompt: '$ ', cmd: 'w2s backup verify --target all-namespaces', delay: 3200 },
-            { output: '<span class="text-green-400">✓</span> <span class="text-slate-400">backup verified — 142 workloads protected, RPO &lt; 15 min</span>', delay: 4000 },
-            { prompt: '$ ', cmd: 'w2s status', delay: 4800 },
-            { output: '<span class="text-green-400">✓</span> <span class="text-cyan-400 font-semibold">All systems operational</span> <span class="text-slate-500">— platform healthy</span>', delay: 5600 },
+            { prompt: '$ ', cmd: 'w2s health-check --all-systems', delay: 0 },
+            { output: '<span class="text-slate-500">▸ scanning infrastructure nodes...</span>', delay: 800 },
+            { output: '<span class="text-green-400">✓</span> <span class="text-slate-300">Kubernetes clusters</span> <span class="text-emerald-400 font-semibold">HEALTHY</span> <span class="text-slate-600">— 24 nodes, 0 alerts</span>', delay: 1600 },
+            { output: '<span class="text-green-400">✓</span> <span class="text-slate-300">Zero-trust gateway</span>  <span class="text-emerald-400 font-semibold">ACTIVE</span>  <span class="text-slate-600">— 0 policy violations</span>', delay: 2400 },
+            { output: '<span class="text-green-400">✓</span> <span class="text-slate-300">Backup integrity</span>   <span class="text-emerald-400 font-semibold">VERIFIED</span> <span class="text-slate-600">— RPO 12m, last: 3m ago</span>', delay: 3200 },
+            { output: '<span class="text-green-400">✓</span> <span class="text-slate-300">DR failover test</span>   <span class="text-emerald-400 font-semibold">PASSED</span> <span class="text-slate-600">— RTO 42s measured</span>', delay: 4000 },
+            { prompt: '$ ', cmd: 'w2s status --summary', delay: 4800 },
+            { output: '<span class="text-green-400">✓</span> <span class="text-cyan-400 font-semibold">All 142 workloads operational</span> <span class="text-slate-500">— uptime 99.997%</span>', delay: 5600 },
         ];
 
         var started = false;

@@ -1093,3 +1093,35 @@ footer ul a:hover::after {
     color: white;
 }
 
+/* --- Hero Floating Terminal --- */
+.hero-floating-terminal {
+    animation: terminal-float 6s ease-in-out infinite;
+}
+@keyframes terminal-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* --- Hero Float Badge --- */
+.hero-float-badge {
+    animation: badge-float 5s ease-in-out infinite;
+}
+@keyframes badge-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+/* --- Enhanced fade-in-up for zig-zag sections --- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
+}
+.fade-left.visible { opacity: 1; transform: translateX(0); }
