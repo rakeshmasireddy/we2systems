@@ -2,7 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>we2systems | Enterprise Platform Engineering & Data Security</title>
     <meta name="description" content="we2systems helps enterprises build resilient hybrid and multi-cloud infrastructure with zero-trust security and automated data protection.">
     <meta name="robots" content="index,follow">
@@ -81,6 +82,9 @@
                             500: '#334155'
                         },
                     },
+                    maxWidth: {
+                        'site': '1200px',
+                    },
                     boxShadow: {
                         glow: '0 0 25px rgba(14, 165, 233, 0.35)',
                         'glow-lg': '0 0 50px rgba(14, 165, 233, 0.2)',
@@ -98,7 +102,7 @@
 
     <!-- ===================== NAVIGATION ===================== -->
     <nav id="header" class="fixed w-full z-50 glass-panel transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="#hero" class="flex-shrink-0 flex items-center cursor-pointer group" aria-label="Back to homepage">
                     <span class="font-heading font-bold text-xl tracking-tight text-white">
@@ -146,7 +150,7 @@
     <!-- ===================== STICKY FAST-ACTION BAR ===================== -->
     <div id="fast-action-bar" class="fixed top-0 left-0 right-0 z-40 translate-y-[-100%] pointer-events-none">
         <div class="fast-action-inner">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
+            <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
                 <span class="font-heading font-bold text-sm text-white tracking-tight hidden sm:block">
                     we<span class="text-gradient">2</span>systems
                 </span>
@@ -258,7 +262,7 @@
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[10] w-full">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-[10] w-full">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <!-- Left: Hero Text (left-aligned) -->
                 <div class="text-left">
@@ -267,7 +271,7 @@
                         Enterprise Infrastructure Engineering
                         <i class="fa-solid fa-sparkles ml-2 text-xs text-accent/60"></i>
                     </div>
-                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                    <h1 class="font-heading font-bold tracking-tight text-white leading-[1.1] mb-6" style="font-size: clamp(2.5rem, 2rem + 4vw, 4.5rem);">
                         <span class="hero-words">
                             <span class="hero-word">Hybrid</span>
                             <span class="hero-word">is</span>
@@ -363,9 +367,11 @@
         </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- ===================== STATS BAR ===================== -->
     <div id="stats" class="relative bg-dark-800/80 border-y border-white/[0.04] py-20 section-glow-top backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="fade-up relative">
                     <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -478,14 +484,14 @@
     <!-- ===================== FOCUS AREAS ===================== -->
     <section id="focus" class="py-28 bg-grid-dark relative section-glow-top">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full filter blur-[120px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-20 fade-up">
                 <h2 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3 flex items-center justify-center gap-3">
                     <span class="w-8 h-px bg-primary/50"></span>
                     Core Expertise
                     <span class="w-8 h-px bg-primary/50"></span>
                 </h2>
-                <h3 class="font-heading text-3xl md:text-5xl font-bold text-white mb-5">What We Focus On</h3>
+                <h3 class="font-heading font-bold text-white mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">What We Focus On</h3>
                 <p class="text-lg text-slate-400">We specialize in three disciplines that modern enterprises need to operate securely at scale.</p>
             </div>
 
@@ -618,7 +624,7 @@
                     </div>
                 </div>
 
-                <!-- Row 3: Data Protection — Image Left, Text Right -->
+                <!-- Row 3: Data Protection — Image Left, Text Right (zig-zag back) -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center fade-up">
                     <!-- Left: Visual -->
                     <div class="glow-card service-card border-l-amber p-0 overflow-hidden">
@@ -694,17 +700,19 @@
         </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- ===================== HOW WE WORK — Process Timeline ===================== -->
     <section id="process" class="py-28 bg-dark-800 relative overflow-hidden section-glow-top">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-accent/5 rounded-full filter blur-[140px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20 fade-up">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20 fade-up process-header-left">
                 <h2 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3 flex items-center justify-center gap-3">
                     <span class="w-8 h-px bg-primary/50"></span>
                     Our Approach
                     <span class="w-8 h-px bg-primary/50"></span>
                 </h2>
-                <h3 class="font-heading text-3xl md:text-5xl font-bold text-white mb-5">How We Work</h3>
+                <h3 class="font-heading font-bold text-white mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">How We Work</h3>
                 <p class="text-lg text-slate-400">A proven, repeatable methodology that takes you from assessment to fully operational infrastructure.</p>
             </div>
 
@@ -831,6 +839,8 @@
         </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- ===================== WHY WE2SYSTEMS ===================== -->
     <section id="why" class="py-28 bg-dark-900 relative overflow-hidden">
         <!-- Background decorations -->
@@ -842,15 +852,15 @@
             <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Section header -->
-            <div class="text-center max-w-3xl mx-auto mb-20 fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-20 fade-up why-header-left">
                 <h2 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3 flex items-center justify-center gap-3">
                     <span class="w-8 h-px bg-primary/50"></span>
                     Why We2Systems
                     <span class="w-8 h-px bg-primary/50"></span>
                 </h2>
-                <h3 class="font-heading text-3xl md:text-5xl font-bold text-white mb-5">A Different Kind of<br><span class="text-gradient text-gradient-animate">Infrastructure Consulting</span></h3>
+                <h3 class="font-heading font-bold text-white mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">A Different Kind of<br><span class="text-gradient text-gradient-animate">Infrastructure Consulting</span></h3>
                 <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-4">We build production-ready systems where infrastructure engineering, data security, and data protection work together — not in silos.</p>
                 <p class="text-sm text-slate-500 max-w-xl mx-auto italic">We stay until it works — embedding with your team through implementation and ongoing operations. <span class="text-white font-medium not-italic">100% client retention — since founding.</span></p>
             </div>
@@ -1024,7 +1034,7 @@
         </div>
     </section>
 
-
+    <hr class="section-divider">
 
     <!-- ===================== TALK TO ARCHITECT CTA ===================== -->
     <section id="readiness" class="py-28 bg-dark-900 relative overflow-hidden section-glow-top">
@@ -1047,7 +1057,7 @@
                             Infrastructure Readiness Assessment
                             <span class="w-8 h-px bg-primary/50"></span>
                         </h2>
-                        <h3 class="font-heading text-4xl md:text-6xl font-bold text-white mb-6">Talk to an Architect</h3>
+                        <h3 class="font-heading font-bold text-white mb-6" style="font-size: clamp(2rem, 1.5rem + 3vw, 3.75rem);">Talk to an Architect</h3>
                         <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                             Schedule a complimentary 45-minute technical deep dive with our senior engineering team.
                         </p>
@@ -1203,14 +1213,14 @@
 
     <!-- ===================== TECHNOLOGIES ===================== -->
     <section id="technologies" class="py-28 bg-dark-800/50 border-y border-white/[0.03] section-glow-top">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14 fade-up">
                 <h2 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3 flex items-center justify-center gap-3">
                     <span class="w-8 h-px bg-primary/50"></span>
                     Trusted Ecosystem
                     <span class="w-8 h-px bg-primary/50"></span>
                 </h2>
-                <h3 class="font-heading text-3xl md:text-5xl font-bold text-white mb-5">Technologies We Work With</h3>
+                <h3 class="font-heading font-bold text-white mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">Technologies We Work With</h3>
                 <p class="text-lg text-slate-400">We build on platforms our engineers know deeply — from hyperconverged infrastructure to container orchestration.</p>
             </div>
 
@@ -1250,7 +1260,7 @@
         <!-- Background subtle glow -->
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-primary/[0.03] to-transparent rounded-full filter blur-[120px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Top CTA strip -->
             <div class="relative rounded-2xl mb-20 fade-up overflow-hidden">
                 <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-purple-500/20 bg-[length:200%_100%] animate-gradient-x"></div>

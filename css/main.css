@@ -3,14 +3,100 @@
    Refined, clean, modern design
    ======================================= */
 
-/* --- Base --- */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    background-color: #0A1128;
-    color: #cbd5e1;
-    -webkit-font-smoothing: antialiased;
+/* --- CSS Custom Properties (Design Tokens) --- */
+:root {
+    /* Colors */
+    --color-primary: #0ea5e9;
+    --color-primary-hover: #38bdf8;
+    --color-accent: #6366f1;
+    --color-accent-hover: #818cf8;
+    --color-purple: #a855f7;
+    --color-emerald: #10b981;
+    --color-dark-950: #060E1F;
+    --color-dark-900: #0A1128;
+    --color-dark-800: #0F1A36;
+    --color-dark-700: #142044;
+    --color-dark-600: #1E2D52;
+    --color-dark-500: #334155;
+    --color-text: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    --color-text-faint: #64748b;
+
+    /* Typography — fluid rem scale (base 16px) */
+    --fs-xs: clamp(0.75rem, 0.7rem + 0.15vw, 0.8125rem);
+    --fs-sm: clamp(0.8125rem, 0.78rem + 0.18vw, 0.875rem);
+    --fs-base: clamp(0.9375rem, 0.88rem + 0.25vw, 1rem);
+    --fs-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+    --fs-xl: clamp(1.1875rem, 1.1rem + 0.4vw, 1.25rem);
+    --fs-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.5rem);
+    --fs-3xl: clamp(1.75rem, 1.5rem + 1.2vw, 1.875rem);
+    --fs-4xl: clamp(2rem, 1.6rem + 1.8vw, 2.25rem);
+    --fs-5xl: clamp(2.5rem, 1.8rem + 3vw, 3rem);
+    --fs-6xl: clamp(3rem, 2rem + 4vw, 3.75rem);
+    --fs-7xl: clamp(3.5rem, 2.2rem + 5vw, 4.5rem);
+
+    /* Layout */
+    --max-width: 1200px;
+    --section-padding: clamp(4rem, 3rem + 3vw, 7rem);
+
+    /* Shadows */
+    --glow: 0 0 25px rgba(14, 165, 233, 0.35);
+    --glow-lg: 0 0 50px rgba(14, 165, 233, 0.2);
+    --glow-accent: 0 0 25px rgba(99, 102, 241, 0.35);
+
+    /* Section separator */
+    --section-border: 1px solid rgba(255, 255, 255, 0.06);
 }
+
+/* --- Base --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Explicit base — prevents Cloudflare/CDN re-scaling */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+body {
+    background-color: var(--color-dark-900);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: var(--fs-base);
+    line-height: 1.6;
+}
+
+/* --- Section Separators (glassmorphism divider) --- */
+.section-divider {
+    border: none;
+    border-bottom: var(--section-border);
+    position: relative;
+}
+.section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(14, 165, 233, 0.2) 30%,
+        rgba(99, 102, 241, 0.15) 50%,
+        rgba(14, 165, 233, 0.2) 70%,
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* --- Fluid Typography Overrides --- */
+.fluid-h1 { font-size: var(--fs-7xl); }
+.fluid-h2 { font-size: var(--fs-5xl); }
+.fluid-h3 { font-size: var(--fs-4xl); }
+.fluid-h4 { font-size: var(--fs-3xl); }
+.fluid-body { font-size: var(--fs-lg); }
+.fluid-sm { font-size: var(--fs-sm); }
 
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar { width: 5px; }
@@ -1125,3 +1211,89 @@ footer ul a:hover::after {
     transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
 }
 .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ========================================
+   ASYMMETRIC ZIG-ZAG LAYOUT SYSTEM
+   Breaks the "everything centered" pattern
+   ======================================== */
+
+/* --- Section Glassmorphism Separator --- */
+section + section,
+div[id="stats"] + section {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    position: relative;
+}
+section + section::before,
+div[id="stats"] + section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(14, 165, 233, 0.18) 25%,
+        rgba(99, 102, 241, 0.12) 50%,
+        rgba(14, 165, 233, 0.18) 75%,
+        transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Override for sections that already have ::before (section-glow-top) */
+.section-glow-top + section::before,
+section + .section-glow-top::before {
+    top: 0;
+}
+
+/* --- Max-Width Constraint (prevents ultrawide stretch) --- */
+.max-w-screen-xl {
+    max-width: 1200px;
+}
+
+/* --- Process Section: Left-align header on desktop --- */
+@media (min-width: 768px) {
+    .process-header-left {
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+    .process-header-left h2 {
+        justify-content: flex-start !important;
+    }
+    .process-header-left p {
+        max-width: 36rem;
+    }
+}
+
+/* --- Why Us Section: Left-align header on desktop --- */
+@media (min-width: 768px) {
+    .why-header-left {
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+    .why-header-left h2 {
+        justify-content: flex-start !important;
+    }
+    .why-header-left p {
+        margin-left: 0 !important;
+    }
+}
+
+/* --- Mobile: Revert all to center-aligned (< 768px) --- */
+@media (max-width: 767px) {
+    .process-header-left,
+    .why-header-left {
+        text-align: center !important;
+    }
+    .process-header-left h2,
+    .why-header-left h2 {
+        justify-content: center !important;
+    }
+    .why-header-left p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
