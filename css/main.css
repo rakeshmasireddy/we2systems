@@ -1690,3 +1690,74 @@ section + .section-glow-top::before {
     0%, 100% { opacity: 0.5; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.1); }
 }
+
+/* ==============================================
+   12. PRELOADER
+   ============================================== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--color-dark-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.preloader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(14, 165, 233, 0.15);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: preloader-spin 0.7s linear infinite;
+}
+@keyframes preloader-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==============================================
+   13. MOBILE MENU ANIMATION
+   ============================================== */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+.mobile-menu.mobile-menu-open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* ==============================================
+   14. TERMINAL HORIZONTAL SCROLL INDICATOR
+   ============================================== */
+@media (max-width: 767px) {
+    .terminal-body,
+    [class*="terminal"] pre,
+    [class*="terminal"] code {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(14, 165, 233, 0.3) transparent;
+    }
+    .terminal-body::-webkit-scrollbar,
+    [class*="terminal"] pre::-webkit-scrollbar {
+        height: 4px;
+    }
+    .terminal-body::-webkit-scrollbar-track,
+    [class*="terminal"] pre::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .terminal-body::-webkit-scrollbar-thumb,
+    [class*="terminal"] pre::-webkit-scrollbar-thumb {
+        background: rgba(14, 165, 233, 0.3);
+        border-radius: 4px;
+    }
+}
+

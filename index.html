@@ -97,6 +97,11 @@
 </head>
 <body class="w-full min-h-screen font-sans antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white">
 
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] z-[9999] rounded-r-full" style="width:0%"></div>
 
@@ -133,14 +138,14 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-2xl border-t border-white/[0.04]">
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-dark-800/95 backdrop-blur-2xl border-t border-white/[0.04]">
             <div class="px-4 pt-3 pb-4 space-y-1">
-                <a href="#focus" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">What We Focus On</a>
-                <a href="#process" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">How We Work</a>
-                <a href="#technologies" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">Technologies</a>
-                <a href="#why" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">Why We2Systems</a>
-                <a href="#readiness" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors">Contact</a>
-                <a href="#readiness" class="block w-full text-center mt-3 px-6 py-3 text-base font-medium rounded-lg text-white bg-primary/20 border border-primary/40">
+                <a href="#focus" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors min-h-[48px] flex items-center">What We Focus On</a>
+                <a href="#process" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors min-h-[48px] flex items-center">How We Work</a>
+                <a href="#technologies" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors min-h-[48px] flex items-center">Technologies</a>
+                <a href="#why" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors min-h-[48px] flex items-center">Why We2Systems</a>
+                <a href="#readiness" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-white/5 transition-colors min-h-[48px] flex items-center">Contact</a>
+                <a href="#readiness" class="block w-full text-center mt-3 px-6 py-3.5 text-base font-medium rounded-lg text-white bg-primary/20 border border-primary/40 min-h-[48px] flex items-center justify-center">
                     Talk to an Architect
                 </a>
             </div>
@@ -284,14 +289,14 @@
                         We help enterprises build resilient, hybrid and multi-cloud systems that balance cost, performance, and control.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 mb-12 fade-up" style="transition-delay:1.3s">
-                        <a href="#readiness" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent shadow-glow btn-glow-pulse transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-lg">
+                    <div class="flex flex-col sm:flex-row gap-5 mb-12 fade-up" style="transition-delay:1.3s">
+                        <a href="#readiness" class="inline-flex items-center justify-center px-10 py-4.5 text-lg font-bold rounded-full text-white bg-gradient-to-r from-primary to-accent shadow-[0_0_40px_rgba(14,165,233,0.45)] btn-glow-pulse transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_60px_rgba(14,165,233,0.55)]">
                             Talk to an Architect
-                            <i class="fa-solid fa-arrow-right ml-2.5"></i>
+                            <i class="fa-solid fa-arrow-right ml-3"></i>
                         </a>
-                        <a href="#focus" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full text-slate-300 border border-white/10 hover:border-primary/40 hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <a href="#focus" class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-full text-slate-400 border border-white/[0.08] hover:border-primary/30 hover:text-primary/80 transition-all duration-300 hover:-translate-y-1 ml-0 sm:ml-2">
                             Explore Services
-                            <i class="fa-solid fa-chevron-down ml-2.5 text-sm"></i>
+                            <i class="fa-solid fa-chevron-down ml-2.5 text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -507,15 +512,9 @@
                         <div class="p-8 pb-0">
                             <span class="card-number-badge">01</span>
                         </div>
-                        <div class="w-full h-64 flex items-center justify-center scrolly-trigger px-8 pb-8" data-scrolly="k8s">
-                            <svg viewBox="0 0 280 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                                <g class="scrolly-piece" data-delay="0" transform="translate(140, 12)">
-                                    <circle r="8" stroke="#0ea5e9" stroke-width="0.8" fill="none" opacity="0.5">
-                                        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="15s" repeatCount="indefinite"/>
-                                    </circle>
-                                    <circle r="3" fill="#0ea5e9" opacity="0.3"/>
-                                </g>
-                                <g class="scrolly-piece" data-delay="200">
+                        <div class="w-full h-64 flex items-center justify-center scrolly-trigger px-8 pt-4 pb-8" data-scrolly="k8s">
+                            <svg viewBox="-5 -2 290 155" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <g class="scrolly-piece" data-delay="0">
                                     <rect x="113" y="30" width="55" height="45" rx="6" stroke="#0ea5e9" stroke-width="1.2" fill="#0ea5e9" fill-opacity="0.08"/>
                                     <rect x="121" y="40" width="20" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"/>
                                     <rect x="121" y="47" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.3"/>
@@ -612,8 +611,8 @@
                         <div class="p-8 pb-0">
                             <span class="card-number-badge">02</span>
                         </div>
-                        <div class="w-full h-64 flex items-center justify-center scrolly-trigger px-8 pb-8" data-scrolly="shield">
-                            <svg viewBox="0 0 280 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <div class="w-full h-72 flex items-center justify-center scrolly-trigger px-8 py-6" data-scrolly="shield">
+                            <svg viewBox="0 0 280 185" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
                                 <g class="scrolly-piece" data-delay="0">
                                     <path d="M140 10 l65 24 v52c0 42-28 78-65 95-37-17-65-53-65-95V34z" stroke="#6366f1" stroke-width="0.5" fill="none" opacity="0.1" class="shield-pulse-outer"/>
                                     <path d="M140 15 l60 22 v48c0 38-25 72-60 88-35-16-60-50-60-88V37z" stroke="#6366f1" stroke-width="1.5" fill="#6366f1" fill-opacity="0.05" class="shield-breathe"/>
@@ -655,47 +654,82 @@
                             <span class="card-number-badge">03</span>
                         </div>
                         <div class="w-full h-64 flex items-center justify-center scrolly-trigger px-8 pb-8" data-scrolly="backup">
-                            <svg viewBox="0 0 280 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <!-- Primary database (center) -->
                                 <g class="scrolly-piece" data-delay="0">
-                                    <ellipse cx="140" cy="65" rx="28" ry="10" stroke="#a855f7" stroke-width="1.2" fill="#a855f7" fill-opacity="0.08" class="db-breathe"/>
-                                    <path d="M112 65 v22c0 5.5 12.5 10 28 10s28-4.5 28-10V65" stroke="#a855f7" stroke-width="1.2" fill="none"/>
-                                    <path d="M112 76c0 5.5 12.5 10 28 10s28-4.5 28-10" stroke="#a855f7" stroke-width="0.8" fill="none" opacity="0.4"/>
-                                    <path d="M133 73 l4 4 8-8" stroke="#a855f7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-                                    <ellipse cx="140" cy="65" rx="35" ry="13" stroke="#c084fc" stroke-width="0.5" fill="none" opacity="0" class="db-glow-ring"/>
+                                    <ellipse cx="140" cy="55" rx="28" ry="10" stroke="#a855f7" stroke-width="1.2" fill="#a855f7" fill-opacity="0.08" class="db-breathe"/>
+                                    <path d="M112 55 v25c0 5.5 12.5 10 28 10s28-4.5 28-10V55" stroke="#a855f7" stroke-width="1.2" fill="none"/>
+                                    <path d="M112 66c0 5.5 12.5 10 28 10s28-4.5 28-10" stroke="#a855f7" stroke-width="0.8" fill="none" opacity="0.4"/>
+                                    <path d="M112 74c0 5.5 12.5 10 28 10s28-4.5 28-10" stroke="#a855f7" stroke-width="0.6" fill="none" opacity="0.25"/>
+                                    <path d="M133 63 l4 4 8-8" stroke="#a855f7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                                    <ellipse cx="140" cy="55" rx="35" ry="13" stroke="#c084fc" stroke-width="0.5" fill="none" opacity="0" class="db-glow-ring"/>
                                 </g>
+                                <!-- Left: source server -->
                                 <g class="scrolly-piece" data-delay="300">
-                                    <g transform="translate(45, 40)">
-                                        <rect width="32" height="24" rx="4" stroke="#a855f7" stroke-width="0.8" fill="#a855f7" fill-opacity="0.05"/>
-                                        <line x1="8" y1="11" x2="24" y2="11" stroke="#a855f7" stroke-width="0.6" opacity="0.4"/>
-                                        <line x1="8" y1="16" x2="18" y2="16" stroke="#a855f7" stroke-width="0.6" opacity="0.3"/>
+                                    <g transform="translate(20, 35)">
+                                        <rect width="36" height="50" rx="4" stroke="#a855f7" stroke-width="0.8" fill="#a855f7" fill-opacity="0.05"/>
+                                        <line x1="8" y1="14" x2="28" y2="14" stroke="#a855f7" stroke-width="0.6" opacity="0.4"/>
+                                        <line x1="8" y1="20" x2="28" y2="20" stroke="#a855f7" stroke-width="0.6" opacity="0.3"/>
+                                        <line x1="8" y1="26" x2="28" y2="26" stroke="#a855f7" stroke-width="0.6" opacity="0.25"/>
+                                        <circle cx="28" cy="14" r="2" fill="#a855f7" opacity="0.6"><animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/></circle>
+                                        <circle cx="28" cy="20" r="2" fill="#c084fc" opacity="0.5"><animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/></circle>
+                                        <text x="18" y="44" text-anchor="middle" font-family="monospace" font-size="6" fill="#a855f7" opacity="0.5">SRC</text>
                                     </g>
-                                    <line x1="77" y1="52" x2="112" y2="65" stroke="#a855f7" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
+                                    <!-- Arrow from source to primary DB -->
+                                    <line x1="56" y1="60" x2="110" y2="60" stroke="#a855f7" stroke-width="0.7" stroke-dasharray="3 2" opacity="0.4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.5s" repeatCount="indefinite"/>
+                                    </line>
                                     <circle r="2" fill="#c084fc" opacity="0.6">
-                                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M77,52 L112,65"/>
+                                        <animateMotion dur="2s" repeatCount="indefinite" path="M56,60 L110,60"/>
+                                        <animate attributeName="opacity" values="0;0.6;0.6;0" dur="2s" repeatCount="indefinite"/>
+                                    </circle>
+                                </g>
+                                <!-- Right: replica / DR target -->
+                                <g class="scrolly-piece" data-delay="500">
+                                    <g transform="translate(224, 35)">
+                                        <rect width="36" height="50" rx="4" stroke="#a855f7" stroke-width="0.8" fill="#a855f7" fill-opacity="0.05"/>
+                                        <line x1="8" y1="14" x2="28" y2="14" stroke="#a855f7" stroke-width="0.6" opacity="0.4"/>
+                                        <line x1="8" y1="20" x2="28" y2="20" stroke="#a855f7" stroke-width="0.6" opacity="0.3"/>
+                                        <line x1="8" y1="26" x2="28" y2="26" stroke="#a855f7" stroke-width="0.6" opacity="0.25"/>
+                                        <circle cx="28" cy="14" r="2" fill="#a855f7" opacity="0.6"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/></circle>
+                                        <circle cx="28" cy="20" r="2" fill="#c084fc" opacity="0.5"><animate attributeName="opacity" values="0.5;0.2;0.5" dur="2.5s" repeatCount="indefinite"/></circle>
+                                        <text x="18" y="44" text-anchor="middle" font-family="monospace" font-size="6" fill="#a855f7" opacity="0.5">DR</text>
+                                    </g>
+                                    <!-- Arrow from primary DB to replica -->
+                                    <line x1="170" y1="60" x2="222" y2="60" stroke="#a855f7" stroke-width="0.7" stroke-dasharray="3 2" opacity="0.4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.5s" repeatCount="indefinite"/>
+                                    </line>
+                                    <circle r="2" fill="#c084fc" opacity="0.6">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M170,60 L222,60"/>
                                         <animate attributeName="opacity" values="0;0.6;0.6;0" dur="2.5s" repeatCount="indefinite"/>
                                     </circle>
                                 </g>
-                                <g class="scrolly-piece" data-delay="500">
-                                    <g transform="translate(203, 40)">
-                                        <rect width="32" height="24" rx="4" stroke="#a855f7" stroke-width="0.8" fill="#a855f7" fill-opacity="0.05"/>
-                                        <line x1="8" y1="11" x2="24" y2="11" stroke="#a855f7" stroke-width="0.6" opacity="0.4"/>
-                                        <line x1="8" y1="16" x2="18" y2="16" stroke="#a855f7" stroke-width="0.6" opacity="0.3"/>
-                                    </g>
-                                    <line x1="203" y1="52" x2="168" y2="65" stroke="#a855f7" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
+                                <!-- Bottom: cloud backup target -->
+                                <g class="scrolly-piece" data-delay="700">
+                                    <path d="M118 125c0-11 9-20 20-20 3-9 12-16 22-16 13 0 24 10 24.5 23 8 2 14 9 14 18 0 10-8 18-18 18h-55c-10 0-18-8-18-18z" stroke="#a855f7" stroke-width="0.8" fill="#a855f7" fill-opacity="0.04" stroke-dasharray="4 3" opacity="0.6">
+                                        <animateTransform attributeName="transform" type="translate" values="0,0;0,-2;0,0" dur="4s" repeatCount="indefinite"/>
+                                    </path>
+                                    <text x="152" y="137" text-anchor="middle" font-family="monospace" font-size="7" fill="#a855f7" opacity="0.5">
+                                        <animateTransform attributeName="transform" type="translate" values="0,0;0,-2;0,0" dur="4s" repeatCount="indefinite"/>
+                                        CLOUD
+                                    </text>
+                                    <!-- Arrow from primary DB down to cloud -->
+                                    <line x1="140" y1="92" x2="140" y2="108" stroke="#a855f7" stroke-width="0.7" stroke-dasharray="3 2" opacity="0.4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.5s" repeatCount="indefinite"/>
+                                    </line>
                                     <circle r="2" fill="#c084fc" opacity="0.6">
-                                        <animateMotion dur="3s" repeatCount="indefinite" path="M203,52 L168,65"/>
-                                        <animate attributeName="opacity" values="0;0.6;0.6;0" dur="3s" repeatCount="indefinite"/>
+                                        <animateMotion dur="2s" repeatCount="indefinite" path="M140,92 L140,108"/>
+                                        <animate attributeName="opacity" values="0;0.6;0.6;0" dur="2s" repeatCount="indefinite"/>
                                     </circle>
                                 </g>
-                                <g class="scrolly-piece scrolly-line" data-delay="700">
-                                    <path d="M140 30 A42 42 0 0 1 182 72" stroke="#a855f7" stroke-width="1" fill="none" stroke-dasharray="4 3" opacity="0.5">
-                                        <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" repeatCount="indefinite"/>
-                                    </path>
-                                    <polygon points="182,68 182,78 175,72" fill="#a855f7" opacity="0.5"/>
-                                    <path d="M182 90 A42 42 0 0 1 140 120" stroke="#a855f7" stroke-width="1" fill="none" stroke-dasharray="4 3" opacity="0.5">
-                                        <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" repeatCount="indefinite"/>
-                                    </path>
-                                    <polygon points="143,120 137,115 143,112" fill="#a855f7" opacity="0.5"/>
+                                <!-- Sync rotation ring -->
+                                <g class="scrolly-piece scrolly-line" data-delay="900">
+                                    <circle cx="140" cy="65" r="45" stroke="#a855f7" stroke-width="0.5" fill="none" stroke-dasharray="6 10" opacity="0.2">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 140 65" to="360 140 65" dur="20s" repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="140" cy="65" r="52" stroke="#c084fc" stroke-width="0.3" fill="none" stroke-dasharray="4 14" opacity="0.1">
+                                        <animateTransform attributeName="transform" type="rotate" from="360 140 65" to="0 140 65" dur="25s" repeatCount="indefinite"/>
+                                    </circle>
                                 </g>
                             </svg>
                         </div>

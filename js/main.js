@@ -33,11 +33,20 @@
         }
     }
 
+    // === Preloader ===
+    var preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('preloader-hidden');
+        preloader.addEventListener('transitionend', function () {
+            preloader.remove();
+        });
+    }
+
     // === Mobile menu ===
     if (btn && menu) {
-        btn.addEventListener('click', function () { menu.classList.toggle('hidden'); });
+        btn.addEventListener('click', function () { menu.classList.toggle('mobile-menu-open'); });
         menu.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () { menu.classList.add('hidden'); });
+            link.addEventListener('click', function () { menu.classList.remove('mobile-menu-open'); });
         });
     }
 
