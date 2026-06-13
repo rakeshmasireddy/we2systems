@@ -1,4 +1,65 @@
 (function () {
+    // === FAQ Accordion ===
+    (function () {
+        document.querySelectorAll('.faq-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.faq-item');
+                var body = item.querySelector('.faq-body');
+                var isOpen = item.classList.contains('open');
+
+                // Close all open items
+                document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-body').style.maxHeight = '0';
+                });
+
+                // Open the clicked item if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            });
+        });
+    })();
+
+    // === Metrics Strip Count-Up ===
+    (function () {
+        var els = document.querySelectorAll('.metric-value[data-count]');
+        if (!els.length || !('IntersectionObserver' in window)) return;
+
+        function animateCount(el) {
+            var target = parseFloat(el.dataset.count);
+            var prefix = el.dataset.prefix || '';
+            var suffix = el.dataset.suffix || '';
+            var isDecimal = !!el.dataset.decimal;
+            var duration = 1600;
+            var start = null;
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                var val = target * easeOut(progress);
+                el.textContent = prefix + (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = prefix + (isDecimal ? target.toFixed(1) : target) + suffix;
+            }
+            requestAnimationFrame(step);
+        }
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        els.forEach(function (el) { obs.observe(el); });
+    })();
+
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const nav = document.getElementById('header');
@@ -165,6 +226,43 @@
         });
         if (subtitle) setTimeout(function () { subtitle.classList.add('visible'); }, 300 + words.length * 200);
         if (desc) setTimeout(function () { desc.classList.add('visible'); }, 300 + words.length * 200 + 200);
+    })();
+
+    // === Hero Event Stream Ticker ===
+    (function heroEventStream() {
+        var stream = document.getElementById('hero-event-stream');
+        if (!stream) return;
+        var events = [
+            { color: 'bg-emerald-400', text: 'backup ok · rpo=4m · nodes=24' },
+            { color: 'bg-primary',     text: 'deploy · <span class="text-primary">v2.14.1</span> → k8s prod' },
+            { color: 'bg-accent',      text: 'zt-policy audit · 0 violations' },
+            { color: 'bg-emerald-400', text: 'health check passed · 24/24 pods' },
+            { color: 'bg-primary',     text: 'autoscale · +2 replicas · api-svc' },
+            { color: 'bg-accent',      text: 'cert renewed · expiry +90d' },
+            { color: 'bg-emerald-400', text: 'snapshot ok · dr-site synced' },
+        ];
+        var idx = events.length;
+        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+        setInterval(function () {
+            var now = new Date();
+            var ts = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+            var ev = events[idx % events.length]; idx++;
+            var rows = stream.querySelectorAll('div');
+            if (rows.length >= 3) rows[rows.length - 1].remove();
+            var row = document.createElement('div');
+            row.className = 'flex items-center gap-2';
+            row.style.cssText = 'opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease,transform 0.3s ease';
+            row.innerHTML = '<span class="text-slate-300 flex-shrink-0">' + ts + '</span>'
+                + '<span class="w-1.5 h-1.5 rounded-full ' + ev.color + ' flex-shrink-0"></span>'
+                + '<span class="text-slate-500 truncate">' + ev.text + '</span>';
+            stream.insertBefore(row, stream.firstChild);
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                });
+            });
+        }, 4000);
     })();
 
     // === Glow Card Mouse Tracking ===
@@ -413,7 +511,7 @@
         var form = document.getElementById('contact-form');
         if (!form) return;
 
-        var inputs = form.querySelectorAll('.contact-input');
+        var inputs = form.querySelectorAll('.form-input');
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -421,6 +519,7 @@
 
             inputs.forEach(function (input) {
                 input.classList.remove('error');
+                if (input.dataset.optional) return;
                 var val = input.value.trim();
                 if (!val) {
                     input.classList.add('error');
