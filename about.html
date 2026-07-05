@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions & Services — Cloud, DevOps, Backup & AI | we2systems</title>
-    <meta name="description" content="we2systems delivers cloud infrastructure consulting, DevOps and Infrastructure as Code, backup and data resilience, platform engineering, AI automation and application engineering.">
+    <title>About We2 Systems — Platform Engineering & Cloud Infrastructure Company</title>
+    <meta name="description" content="We2 Systems is an enterprise platform engineering company in Bangalore building intelligent business platforms and secure cloud infrastructure for healthcare, construction, manufacturing and enterprise operations.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230ea5e9'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='18' fill='white'%3Ew2%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,32 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'Helvetica Neue', 'sans-serif'],
+                        heading: ['Inter', 'Helvetica Neue', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
                     },
                     colors: {
                         primary: '#0ea5e9',
                         primaryHover: '#38bdf8',
                         accent: '#6366f1',
+                        accentHover: '#818cf8',
+                        dark: {
+                            950: '#f8fafc',
+                            900: '#ffffff',
+                            800: '#f1f5f9',
+                            700: '#e2e8f0',
+                            600: '#cbd5e1',
+                            500: '#94a3b8'
+                        },
                     },
-                    maxWidth: { site: '1200px' },
+                    maxWidth: {
+                        'site': '1200px',
+                    },
+                    boxShadow: {
+                        glow: '0 0 25px rgba(14, 165, 233, 0.35)',
+                        'glow-lg': '0 0 50px rgba(14, 165, 233, 0.2)',
+                        'glow-accent': '0 0 25px rgba(99, 102, 241, 0.35)',
+                    }
                 }
             }
         };
@@ -44,7 +61,6 @@
         }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-        /* Nav */
         .nav-glass {
             background: rgba(255,255,255,0.92);
             backdrop-filter: blur(20px);
@@ -52,27 +68,6 @@
             border-bottom: 1px solid rgba(0,0,0,0.07);
         }
 
-        /* Service section accent bar */
-        .service-accent-bar { height: 4px; border-radius: 2px; }
-
-        /* Capability item */
-        .cap-item {
-            display: flex; align-items: flex-start; gap: 10px;
-            padding: 14px 16px; border-radius: 12px;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .cap-item:hover { background: #f0f9ff; border-color: rgba(14,165,233,0.2); }
-
-        /* Outcome badge */
-        .outcome-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 16px; border-radius: 10px;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-            font-size: 13px; color: #475569;
-        }
-
-        /* Nav dropdown */
         .platforms-dropdown {
             position: absolute; top: calc(100% + 10px); left: 0;
             min-width: 260px; background: #ffffff;
@@ -98,7 +93,6 @@
         #platforms-chevron-mobile.rotated, #solutions-chevron-mobile.rotated { transform: rotate(180deg); }
         #platforms-chevron-mobile, #solutions-chevron-mobile { transition: transform 0.25s ease; }
 
-        /* Page transition veil */
         #page-veil {
             position: fixed; inset: 0; background: #ffffff;
             z-index: 9998; opacity: 1;
@@ -232,7 +226,7 @@
                     </div>
                     <a href="industries.html" class="relative text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">Industries</a>
                     <a href="index.html#insights" class="relative text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">Insights</a>
-                    <a href="index.html#why" class="relative text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">About We2</a>
+                    <a href="about.html" class="relative text-sm font-semibold text-slate-900 px-3 py-2 rounded-full bg-slate-200/70 transition-all duration-300">About We2</a>
                     <a href="index.html#readiness" class="relative text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">Contact</a>
                 </div>
 
@@ -280,7 +274,7 @@
             </div>
             <a href="industries.html" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">Industries</a>
             <a href="index.html#insights" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">Insights</a>
-            <a href="index.html#why" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">About We2</a>
+            <a href="about.html" class="block px-4 py-3.5 rounded-lg text-base font-semibold text-slate-900 bg-slate-100 min-h-[48px] flex items-center">About We2</a>
             <a href="index.html#readiness" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">Contact</a>
             <a href="index.html#readiness" class="block w-full text-center mt-3 px-6 py-3.5 text-base font-semibold rounded-lg text-white bg-primary">Talk to an Architect</a>
         </div>
@@ -295,129 +289,61 @@
             <div class="max-w-3xl fade-up">
                 <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/15 text-sm font-medium text-primary/90 mb-8">
                     <span class="w-2 h-2 rounded-full bg-primary mr-2.5 animate-pulse"></span>
-                    Platform Engineering · Data Security · Data Protection
+                     Bangalore, India
                 </div>
                 <h1 class="font-bold text-slate-900 leading-tight mb-6" style="font-size: clamp(2.25rem, 1.8rem + 3vw, 4rem);">
-                    Infrastructure services that connect<br class="hidden sm:block">
-                    <span class="text-gradient">engineering to outcomes.</span>
+                    We build platforms that<br class="hidden sm:block">
+                    <span class="text-gradient">run real operations.</span>
                 </h1>
                 <p class="text-lg sm:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                    We build, protect, and operate enterprise platforms using production-proven engineering — hybrid cloud, Kubernetes, data security, and disaster recovery that perform under real-world conditions.
+                    We2 Systems is not only an application development company. We build business platforms and the production infrastructure behind them — from idea to production.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="index.html#readiness" class="btn-primary">
+                    <a href="index.html#readiness" class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-primary/20">
                         Talk to an Architect <i class="fa-solid fa-arrow-right ml-2.5"></i>
                     </a>
-                    <a href="#platform-engineering" class="btn-outline">
-                        Explore Services <i class="fa-solid fa-chevron-down ml-2.5 text-sm"></i>
-                    </a>
+                    <!-- <a href="solutions/index.html" class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full text-slate-700 bg-white border border-slate-200 hover:border-primary/40 hover:bg-slate-50 transition-all duration-200">
+                        Explore Solutions <i class="fa-solid fa-chevron-right ml-2.5 text-sm"></i>
+                    </a> -->
                 </div>
-            </div>
-
-            <!-- Service summary strip -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-16 fade-up" style="transition-delay:0.15s">
-                <a href="#platform-engineering" class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-200 hover:border-primary/30 hover:shadow-md transition-all duration-300 group">
-                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-layer-group text-primary"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-900 text-sm">Platform Engineering</p>
-                        <p class="text-xs text-slate-500 mt-0.5">BUILD · Hybrid cloud &amp; Kubernetes</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-primary ml-auto text-xs transition-colors"></i>
-                </a>
-                <a href="#data-security" class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-200 hover:border-accent/30 hover:shadow-md transition-all duration-300 group">
-                    <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-shield-check text-accent"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-900 text-sm">Data Security</p>
-                        <p class="text-xs text-slate-500 mt-0.5">PROTECT · Zero Trust &amp; DR</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-accent ml-auto text-xs transition-colors"></i>
-                </a>
-                <a href="#data-protection" class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-500/30 hover:shadow-md transition-all duration-300 group">
-                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-chart-line text-purple-500"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-900 text-sm">Data Protection</p>
-                        <p class="text-xs text-slate-500 mt-0.5">OPERATE · Backup &amp; recovery</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-purple-500 ml-auto text-xs transition-colors"></i>
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== PLATFORM ENGINEERING ===================== -->
-    <section id="platform-engineering" class="py-24 bg-white relative">
+    <!-- ===================== WHO WE ARE ===================== -->
+    <section class="py-24 bg-white relative">
         <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-                <!-- Left: content -->
+                <!-- Left: text -->
                 <div class="fade-up">
-                    <div class="service-accent-bar w-12 bg-gradient-to-r from-primary to-sky-400 mb-6"></div>
-                    <span class="inline-block text-xs font-mono font-bold text-primary bg-primary/10 border border-primary/15 px-3 py-1 rounded-full mb-4 tracking-wider">BUILD</span>
-                    <h2 class="font-bold text-slate-900 mb-4 leading-tight" style="font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Platform Engineering</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                        Production-ready hybrid and cloud-native platforms. We design and build Kubernetes-powered infrastructure with IaC and GitOps automation — so your teams deploy faster and operate with confidence.
-                    </p>
-
-                    <!-- Outcome statement -->
-                    <div class="flex flex-wrap gap-3 mb-10">
-                        <div class="outcome-badge"><i class="fa-solid fa-bolt text-primary text-xs"></i> Faster deployment cycles</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-arrow-down text-primary text-xs"></i> Lower operating cost</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-lock text-primary text-xs"></i> Zero configuration drift</div>
+                    <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">Who We Are</p>
+                    <h2 class="font-bold text-slate-900 mb-6 leading-tight" style="font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Enterprise platform engineering from Bangalore.</h2>
+                    <div class="space-y-4 text-slate-600 leading-relaxed">
+                        <p>We2 Systems is an enterprise platform engineering company based in Bangalore. We work with businesses across healthcare, construction, manufacturing, sustainability and enterprise operations.</p>
+                        <p>Our teams combine application engineering, cloud infrastructure consulting, DevOps, Infrastructure as Code, data protection, security and AI automation — so we can take customers from business problem through to production.</p>
+                        <p>We do not build screens and hand them over. We build the platform, the cloud foundation, the security layer and the operational model that makes the application run reliably at scale.</p>
                     </div>
-
-                    <a href="index.html#readiness" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-primary/20">
-                        Start a Platform Assessment <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
                 </div>
 
-                <!-- Right: capabilities -->
-                <div class="space-y-3 fade-up" style="transition-delay:0.1s">
-                    <div class="cap-item">
-                        <i class="fa-solid fa-dharmachakra text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Kubernetes orchestration</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Multi-cluster setup, auto-scaling, GitOps workflows with ArgoCD or Flux. From single cluster to fleet management.</p>
-                        </div>
+                <!-- Right: headline stat + partnerships -->
+                <div class="fade-up" style="transition-delay:0.1s">
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 hover:border-primary/30 hover:shadow-md transition-all duration-300 text-center mb-4">
+                        <p class="font-bold text-slate-900 mb-1" style="font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);">6+</p>
+                        <p class="text-sm text-slate-500 font-medium">Business Platforms Built</p>
                     </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-cloud text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Hybrid cloud integration</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Unified control plane across on-prem, AWS, Azure, and GCP. Consistent policy, networking, and identity across environments.</p>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-slate-50 rounded-xl border border-slate-200 py-4 px-2 text-center">
+                            <p class="text-sm font-semibold text-slate-800">AWS + Azure</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Cloud Platforms</p>
                         </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-code text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Infrastructure as Code</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Terraform and Ansible-driven provisioning. Every environment reproducible, version-controlled, and drift-free.</p>
+                        <div class="bg-slate-50 rounded-xl border border-slate-200 py-4 px-2 text-center">
+                            <p class="text-sm font-semibold text-slate-800">Veeam</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Data Resilience</p>
                         </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-server text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">VMware exit &amp; cloud migration</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Structured migration from legacy virtualisation to cloud-native or hybrid-cloud platforms — without service interruption.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-chart-pie text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Cloud cost &amp; FinOps</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Rightsizing, reserved capacity planning, and real-time cost visibility. Lower cloud spend without sacrificing performance.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-network-wired text-primary mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">CI/CD pipeline design</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Build pipelines that take code from commit to production safely — automated testing, gating, and rollback built in.</p>
+                        <div class="bg-slate-50 rounded-xl border border-slate-200 py-4 px-2 text-center">
+                            <p class="text-sm font-semibold text-slate-800">Bangalore</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Headquartered</p>
                         </div>
                     </div>
                 </div>
@@ -427,163 +353,13 @@
 
     <div class="h-px bg-slate-100 max-w-site mx-auto"></div>
 
-    <!-- ===================== DATA SECURITY ===================== -->
-    <section id="data-security" class="py-24 bg-white relative">
-        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-                <!-- Left: capabilities -->
-                <div class="space-y-3 fade-up order-2 lg:order-1" style="transition-delay:0.1s">
-                    <div class="cap-item" style="--hover-color: rgba(99,102,241,0.2);">
-                        <i class="fa-solid fa-shield-halved text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Zero-trust architecture</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Identity-aware policies at every network boundary. No implicit trust — every request verified, every access logged.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-bug-slash text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Ransomware protection</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Immutable backup vaults, air-gapped copies, and automated threat isolation. Your data survives an attack.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-lock text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Encryption at rest &amp; in transit</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Centralised key management, TLS enforcement, and audit trails across every storage and transport layer.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-clipboard-check text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Compliance readiness</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Alignment to SOC 2, ISO 27001, and India's DPDP requirements. Gap analysis, remediation roadmap, and evidence collection.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-magnifying-glass text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Security posture assessment</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Structured review of your current security posture — attack surface, policy gaps, and a prioritised remediation plan.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-sitemap text-accent mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Network micro-segmentation</p>
-                            <p class="text-xs text-slate-500 mt-0.5">East-west traffic control and workload isolation. Breach containment built into the architecture, not bolted on after.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: content -->
-                <div class="fade-up order-1 lg:order-2">
-                    <div class="service-accent-bar w-12 bg-gradient-to-r from-accent to-purple-500 mb-6"></div>
-                    <span class="inline-block text-xs font-mono font-bold text-accent bg-accent/10 border border-accent/15 px-3 py-1 rounded-full mb-4 tracking-wider">PROTECT</span>
-                    <h2 class="font-bold text-slate-900 mb-4 leading-tight" style="font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Data Security</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                        Backup, DR, and ransomware-resilient data architecture. Your critical assets stay recoverable no matter what hits production — designed for enterprises where downtime has a real cost.
-                    </p>
-
-                    <div class="flex flex-wrap gap-3 mb-10">
-                        <div class="outcome-badge"><i class="fa-solid fa-shield-check text-accent text-xs"></i> Lower risk exposure</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-clipboard-check text-accent text-xs"></i> Stronger compliance posture</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-eye text-accent text-xs"></i> Full audit visibility</div>
-                    </div>
-
-                    <a href="index.html#readiness" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-accent to-indigo-500 hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-accent/20">
-                        Start a Security Assessment <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="h-px bg-slate-100 max-w-site mx-auto"></div>
-
-    <!-- ===================== DATA PROTECTION ===================== -->
-    <section id="data-protection" class="py-24 bg-white relative">
-        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-                <!-- Left: content -->
-                <div class="fade-up">
-                    <div class="service-accent-bar w-12 bg-gradient-to-r from-purple-500 to-pink-500 mb-6"></div>
-                    <span class="inline-block text-xs font-mono font-bold text-purple-600 bg-purple-500/10 border border-purple-500/15 px-3 py-1 rounded-full mb-4 tracking-wider">OPERATE</span>
-                    <h2 class="font-bold text-slate-900 mb-4 leading-tight" style="font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Data Protection</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                        Cost, performance, reliability and governance built into daily operations. Infrastructure that stays healthy and recoverable — without constant manual intervention or firefighting.
-                    </p>
-
-                    <div class="flex flex-wrap gap-3 mb-10">
-                        <div class="outcome-badge"><i class="fa-solid fa-rotate text-purple-500 text-xs"></i> Better recovery outcomes</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-gauge text-purple-500 text-xs"></i> RPO &lt; 15 min · RTO &lt; 1 hr</div>
-                        <div class="outcome-badge"><i class="fa-solid fa-file-shield text-purple-500 text-xs"></i> Audit-ready reporting</div>
-                    </div>
-
-                    <a href="index.html#readiness" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-purple-500/20">
-                        Start a DR Assessment <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Right: capabilities -->
-                <div class="space-y-3 fade-up" style="transition-delay:0.1s">
-                    <div class="cap-item">
-                        <i class="fa-solid fa-database text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Automated backup &amp; recovery</p>
-                            <p class="text-xs text-slate-500 mt-0.5">RPO under 15 minutes, RTO under 1 hour. Policy-driven backup schedules with verified restore capability across all workloads.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-dharmachakra text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Kubernetes-native data protection</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Kasten K10 for stateful workloads — application-consistent backups, namespace-level granularity, and cross-cluster DR.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-building-columns text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Multi-site disaster recovery</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Active-passive and active-active DR topologies. Failover in under an hour across geographically separated sites.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-clock-rotate-left text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Continuous data protection</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Journal-based CDP — restore to any point in time, not just scheduled backup windows. Minimal data loss regardless of when an incident occurs.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-vial text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">DR testing &amp; validation</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Monthly automated DR drills with documented runbooks. Your team knows the plan works before the incident happens.</p>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <i class="fa-solid fa-file-lines text-purple-500 mt-0.5 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-slate-800 text-sm">Backup compliance reporting</p>
-                            <p class="text-xs text-slate-500 mt-0.5">Audit-ready reports covering all protected assets, backup success rates, retention compliance, and recovery test outcomes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== HOW WE WORK ===================== -->
+    <!-- ===================== OUR DELIVERY MODEL ===================== -->
     <section class="py-20 bg-slate-50 border-y border-slate-200">
         <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14 fade-up">
-                <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">Our Approach</p>
-                <h2 class="font-bold text-slate-900 text-3xl mb-3">How We Work</h2>
-                <p class="text-slate-600 max-w-xl mx-auto">A repeatable methodology from assessment to fully operational infrastructure.</p>
+                <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">How We Work</p>
+                <h2 class="font-bold text-slate-900 text-3xl mb-3">Our Delivery Model</h2>
+                <p class="text-slate-600 max-w-xl mx-auto">From business problem to production — a repeatable four-stage process designed for engineering-led outcomes.</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up" style="transition-delay:0.1s">
                 <div class="text-center">
@@ -591,50 +367,184 @@
                         <i class="fa-solid fa-magnifying-glass text-primary"></i>
                     </div>
                     <p class="text-xs font-mono text-primary/70 mb-1">STEP 01</p>
-                    <p class="font-semibold text-slate-900 text-sm mb-1">Discover</p>
-                    <p class="text-xs text-slate-500">Deep-dive assessment of your current infrastructure and gaps.</p>
+                    <p class="font-semibold text-slate-900 text-sm mb-2">Discover</p>
+                    <p class="text-xs text-slate-500">Business problem deep-dive. We map the operation before we design anything.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-14 h-14 rounded-full bg-accent/10 border-2 border-accent/20 flex items-center justify-center mx-auto mb-4">
                         <i class="fa-solid fa-compass-drafting text-accent"></i>
                     </div>
                     <p class="text-xs font-mono text-accent/70 mb-1">STEP 02</p>
-                    <p class="font-semibold text-slate-900 text-sm mb-1">Architect</p>
-                    <p class="text-xs text-slate-500">Design a resilient, cost-efficient platform blueprint for your environment.</p>
+                    <p class="font-semibold text-slate-900 text-sm mb-2">Architect</p>
+                    <p class="text-xs text-slate-500">Platform and infrastructure blueprint. Cloud, security, data and application layers designed together.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-14 h-14 rounded-full bg-purple-500/10 border-2 border-purple-500/20 flex items-center justify-center mx-auto mb-4">
                         <i class="fa-solid fa-code-branch text-purple-500"></i>
                     </div>
                     <p class="text-xs font-mono text-purple-500/70 mb-1">STEP 03</p>
-                    <p class="font-semibold text-slate-900 text-sm mb-1">Implement</p>
-                    <p class="text-xs text-slate-500">Build, migrate, and harden with automation-first engineering.</p>
+                    <p class="font-semibold text-slate-900 text-sm mb-2">Build</p>
+                    <p class="text-xs text-slate-500">Engineering-led delivery. Application, cloud, DevOps and data protection built as one.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4">
                         <i class="fa-solid fa-chart-line text-primary"></i>
                     </div>
                     <p class="text-xs font-mono text-primary/70 mb-1">STEP 04</p>
-                    <p class="font-semibold text-slate-900 text-sm mb-1">Operate</p>
-                    <p class="text-xs text-slate-500">Ongoing monitoring, optimisation, and support to keep systems at peak.</p>
+                    <p class="font-semibold text-slate-900 text-sm mb-2">Operate</p>
+                    <p class="text-xs text-slate-500">Ongoing support and optimisation. We stay involved after go-live.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===================== WHAT WE BUILD ===================== -->
+    <section class="py-24 bg-white">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">Engineering Capabilities</p>
+                <h2 class="font-bold text-slate-900 text-3xl sm:text-4xl mb-4">What We Build</h2>
+                <p class="text-slate-600 max-w-xl mx-auto">Three capability groups, delivered as one integrated platform — not separate projects.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up" style="transition-delay:0.1s">
+                <div class="bg-white rounded-2xl border border-slate-200 p-7 hover:border-primary/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-display text-primary text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-2">Platforms & Cloud</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Purpose-built business platforms running on AWS and Azure — designed, migrated and operated end-to-end.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 p-7 hover:border-accent/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-code-branch text-accent text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-2">DevOps, Data & AI</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">CI/CD, Infrastructure as Code, data platforms and AI-driven automation built into delivery, not bolted on after.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 p-7 hover:border-purple-500/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-shield-halved text-purple-500 text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-2">Security & Resilience</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Zero-trust architecture and Veeam-based backup and disaster recovery, so what we build keeps running.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 fade-up" style="transition-delay:0.2s">
+                <a href="solutions/index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primaryHover transition-colors">
+                    Explore the full solutions catalog <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OUR VALUES ===================== -->
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-up">
+                <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">Principles</p>
+                <h2 class="font-bold text-slate-900 text-3xl mb-3">Our Values</h2>
+                <p class="text-slate-600 max-w-xl mx-auto">The thinking behind how we work and what we build.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up" style="transition-delay:0.1s">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-code text-primary text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Engineering over slides</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">We prove things work in production, not in decks. Every recommendation is backed by real implementation experience.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:border-accent/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-scale-balanced text-accent text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Workload-first thinking</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">We do not push everything to cloud by default. We help customers make decisions based on cost, risk, performance and compliance.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-layer-group text-primary text-lg"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Platforms, not projects</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">We build systems designed to run for years — not deliverables that need rebuilding in 18 months.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MEET THE TEAM ===================== -->
+    <section class="py-24 bg-white" id="team">
+        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16 fade-up">
+                <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">Our People</p>
+                <h2 class="font-bold text-slate-900 text-3xl sm:text-4xl mb-4">Meet the Team</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Experienced practitioners and advisors who bring deep domain knowledge across enterprise technology, cloud infrastructure and business operations.</p>
+            </div>
+
+            <!-- Flex row: scales cleanly as more members are added -->
+            <div class="flex flex-wrap justify-center gap-8 fade-up" style="transition-delay:0.1s">
+
+                <!-- Sridhar Nuti -->
+                <div class="w-full max-w-sm bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <!-- Photo area -->
+                    <div class="bg-gradient-to-br from-sky-50 via-white to-indigo-50 flex flex-col items-center pt-10 pb-6 px-6">
+                        <!-- To use a real photo: replace the div below with
+                             <img src="images/team/sridhar-nuti.jpg" alt="Sridhar Nuti"
+                                  class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg"> -->
+                        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center border-4 border-white shadow-lg shadow-primary/20 mb-4">
+                            <span class="text-white font-bold text-3xl tracking-tight select-none">SN</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-xl leading-tight">Sridhar Nuti</h3>
+                        <span class="mt-2 inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">Strategic Advisor</span>
+                    </div>
+
+                    <!-- Bio + highlights -->
+                    <div class="px-7 py-6 flex flex-col flex-1">
+                        <p class="text-sm text-slate-500 leading-relaxed mb-5">
+                            Seasoned technology leader with extensive experience in enterprise platform strategy, cloud transformation and building scalable digital operations. Brings hands-on industry perspective and strategic direction to We2 Systems.
+                        </p>
+
+                        <ul class="space-y-2.5 mb-7">
+                            <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                                <i class="fa-solid fa-circle-check text-primary mt-0.5 flex-shrink-0"></i>
+                                Enterprise platform strategy &amp; cloud transformation
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                                <i class="fa-solid fa-circle-check text-primary mt-0.5 flex-shrink-0"></i>
+                                Digital operations &amp; business technology alignment
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                                <i class="fa-solid fa-circle-check text-primary mt-0.5 flex-shrink-0"></i>
+                                Growth advisory for technology-led businesses
+                            </li>
+                        </ul>
+
+                        <a href="https://www.linkedin.com/in/sridhar-nuti-787a1982/" target="_blank" rel="noopener noreferrer"
+                           class="mt-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 hover:border-[#0A66C2] hover:text-[#0A66C2] hover:bg-blue-50/50 transition-all duration-200">
+                            <i class="fa-brands fa-linkedin text-[#0A66C2] text-base"></i>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="h-px bg-slate-100 max-w-site mx-auto"></div>
+
     <!-- ===================== CTA ===================== -->
     <section class="py-24 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
-            <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-4">Infrastructure Readiness Assessment</p>
-            <h2 class="font-bold text-slate-900 mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">Talk to an Architect</h2>
-            <p class="text-lg text-slate-600 mb-8 max-w-xl mx-auto leading-relaxed">Schedule a complimentary 45-minute technical deep dive with our senior engineering team — no sales pitch, just engineering.</p>
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10">
-                <span class="inline-flex items-center text-sm text-slate-600"><i class="fa-solid fa-circle-check text-primary mr-2"></i> No sales pitch — pure engineering</span>
-                <span class="inline-flex items-center text-sm text-slate-600"><i class="fa-solid fa-circle-check text-primary mr-2"></i> 45-min deep dive</span>
-                <span class="inline-flex items-center text-sm text-slate-600"><i class="fa-solid fa-circle-check text-primary mr-2"></i> Actionable infrastructure report</span>
-            </div>
-            <a href="index.html#readiness" class="btn-primary">
-                Request Free Assessment <i class="fa-solid fa-arrow-right ml-3"></i>
+            <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-4">Start a Conversation</p>
+            <h2 class="font-bold text-slate-900 mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">Ready to build something that runs?</h2>
+            <p class="text-lg text-slate-600 mb-8 max-w-xl mx-auto leading-relaxed">Talk to our senior engineering team — no sales pitch, just a real conversation about your platform, your operations and what it takes to make them work at scale.</p>
+            <a href="index.html#readiness" class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-primary/20">
+                Talk to an Architect <i class="fa-solid fa-arrow-right ml-3"></i>
             </a>
         </div>
     </section>

@@ -477,7 +477,7 @@
 
     // === Active Nav Section Highlight (IntersectionObserver) ===
     (function initActiveNav() {
-        var sectionIds = ['hero', 'focus', 'process', 'technologies', 'why', 'readiness'];
+        var sectionIds = ['hero', 'focus', 'process', 'technologies', 'why', 'readiness', 'insights'];
         var navLinks = document.querySelectorAll('#header .hidden.md\\:flex a[href^="#"]:not([class*="bg-gradient"])');
         var linkMap = {};
         navLinks.forEach(function (link) {
@@ -539,15 +539,15 @@
             var email = form.querySelector('[name="email"]').value.trim();
             var challenge = form.querySelector('[name="challenge"]').value.trim();
 
-            // Hide wizard, show success
-            var wizard = document.getElementById('assessment-wizard');
-            if (wizard) wizard.style.display = 'none';
+            // Hide form, show success
+            var formWrapper = document.getElementById('cta-form-wrapper');
+            if (formWrapper) formWrapper.style.display = 'none';
             document.getElementById('form-success').style.display = 'block';
 
             // TODO: Replace with actual backend API call (e.g., POST /api/contact)
             // Mailto fallback after short delay so user sees the success message
             setTimeout(function () {
-                var subject = encodeURIComponent('Infrastructure Assessment Request — ' + company);
+                var subject = encodeURIComponent('Talk to an Architect — ' + company);
                 var body = encodeURIComponent(
                     'Name: ' + name + '\n' +
                     'Company: ' + company + '\n' +

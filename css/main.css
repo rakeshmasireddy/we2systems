@@ -696,15 +696,16 @@ body {
     font-size: 1rem;
     font-weight: 500;
     border-radius: 9999px;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-    background: transparent;
-    transition: border-color 300ms ease, color 300ms ease, transform 200ms ease;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    background: rgba(16, 185, 129, 0.06);
+    transition: border-color 300ms ease, color 300ms ease, background 300ms ease, transform 200ms ease;
     text-decoration: none;
 }
 .btn-outline-health:hover {
     border-color: #6ee7b7;
     color: #047857;
+    background: rgba(16, 185, 129, 0.1);
     transform: translateY(-2px);
 }
 
@@ -816,7 +817,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .animate-gradient-x, .text-gradient-animate, .marquee-track,
     .btn-glow-pulse, .animate-float-slow, .animate-float-medium,
-    .animate-ping-slow, .hero-aurora-band, .hero-perspective-grid-inner { animation: none; }
+    .animate-ping-slow, .hero-aurora-band, .hero-perspective-grid-inner, .animate-bounce-slow { animation: none; }
     .hero-word, .hero-subtitle, .hero-desc,
     .fade-up, .fade-left { opacity: 1; transform: none; filter: none; transition: none; }
     .glow-card { transition: none; }
@@ -1198,124 +1199,7 @@ footer ul a:hover::after {
     transition: height 400ms ease;
 }
 
-/* --- Multi-Step Assessment Wizard --- */
-.assessment-step-dot {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(100, 116, 139, 0.8);
-    transition: all 0.4s cubic-bezier(.16,1,.3,1);
-    flex-shrink: 0;
-}
-.assessment-step-dot.active {
-    border-color: #0ea5e9;
-    color: #0ea5e9;
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
-    background: rgba(14, 165, 233, 0.1);
-}
-.assessment-step-dot.done {
-    border-color: #34d399;
-    color: #34d399;
-    background: rgba(52, 211, 153, 0.1);
-}
-.assessment-step-line {
-    flex: 1;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.08);
-    border-radius: 1px;
-    position: relative;
-    overflow: hidden;
-}
-.assessment-step-line::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #0ea5e9, #6366f1);
-    border-radius: 1px;
-    transition: width 0.5s cubic-bezier(.16,1,.3,1);
-}
-.assessment-step-line.filled::after {
-    width: 100%;
-}
-.assessment-panel {
-    display: none;
-    animation: assess-fade-in 0.4s ease forwards;
-}
-.assessment-panel.active {
-    display: block;
-}
-@keyframes assess-fade-in {
-    from { opacity: 0; transform: translateX(16px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-.assessment-option-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 16px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-.assessment-option-card:hover {
-    border-color: rgba(14, 165, 233, 0.3);
-    background: rgba(14, 165, 233, 0.05);
-}
-.assessment-option input:checked + .assessment-option-card {
-    border-color: #0ea5e9;
-    background: rgba(14, 165, 233, 0.1);
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
-}
-.assessment-check-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.assessment-check-card:hover {
-    border-color: rgba(14, 165, 233, 0.25);
-}
-.assessment-check-box {
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-    border: 1.5px solid rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: transparent;
-    transition: all 0.25s ease;
-    flex-shrink: 0;
-}
-.assessment-checkbox input:checked + .assessment-check-card {
-    border-color: #0ea5e9;
-    background: rgba(14, 165, 233, 0.08);
-}
-.assessment-checkbox input:checked + .assessment-check-card .assessment-check-box {
-    background: #0ea5e9;
-    border-color: #0ea5e9;
-    color: white;
-}
+/* --- CTA Form --- */
 .assessment-next-btn {
     display: inline-flex;
     align-items: center;
@@ -1335,25 +1219,6 @@ footer ul a:hover::after {
     transform: translateY(-2px);
     box-shadow: 0 0 25px rgba(14, 165, 233, 0.35);
 }
-.assessment-back-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: 9999px;
-    color: #64748b;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.assessment-back-btn:hover {
-    border-color: rgba(0, 0, 0, 0.25);
-    color: #1e293b;
-}
-
 /* --- Hero Floating Terminal --- */
 .hero-floating-terminal {
     animation: terminal-float 6s ease-in-out infinite;
@@ -1661,23 +1526,7 @@ section + .section-glow-top::before {
 }
 
 /* ==============================================
-   7. ASSESSMENT STEP CHECKMARK (done state)
-   ============================================== */
-.assessment-step-dot.done span {
-    display: none;
-}
-.assessment-step-dot.done::after {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 6px;
-    border-left: 2px solid #34d399;
-    border-bottom: 2px solid #34d399;
-    transform: rotate(-45deg) translateY(-1px);
-}
-
-/* ==============================================
-   8. STICKY HEADER — Enhanced header-active state
+   7. STICKY HEADER — Enhanced header-active state
    ============================================== */
 .glass-panel.header-active {
     background: rgba(255, 255, 255, 0.97);
@@ -1893,6 +1742,15 @@ section + .section-glow-top::before {
 }
 
 /* ==============================================
+   13A0. ACTIVE NAV STATE
+   ============================================== */
+.nav-active {
+    background: rgba(14, 165, 233, 0.08) !important;
+    color: #0ea5e9 !important;
+    font-weight: 600;
+}
+
+/* ==============================================
    13A. PLATFORMS NAV DROPDOWN
    ============================================== */
 .platforms-dropdown {
@@ -1961,6 +1819,51 @@ section + .section-glow-top::before {
     transform: rotate(180deg);
 }
 
+/* Flush-left dropdown override (no centering) */
+.platforms-dropdown.flush-left {
+    left: 0;
+    transform: translateY(-6px) !important;
+}
+.platforms-dropdown.flush-left.open {
+    transform: translateY(0) !important;
+}
+.platforms-dropdown.flush-left::before {
+    left: 40px;
+    right: auto;
+    transform: rotate(45deg);
+}
+
+/* Solutions nav dropdown (wider, 2-col grid) */
+.solutions-dropdown {
+    min-width: 540px;
+    left: 0;
+    transform: translateY(-6px) !important;
+}
+.solutions-dropdown.open {
+    transform: translateY(0) !important;
+}
+.solutions-dropdown::before {
+    left: 80px;
+    right: auto;
+    transform: rotate(45deg);
+}
+#solutions-chevron-mobile {
+    transition: transform 0.25s ease;
+}
+#solutions-chevron-mobile.rotated {
+    transform: rotate(180deg);
+}
+.mobile-solutions-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease;
+    opacity: 0;
+}
+.mobile-solutions-sub.open {
+    max-height: 600px;
+    opacity: 1;
+}
+
 /* ==============================================
    13. MOBILE MENU ANIMATION
    ============================================== */
@@ -1971,7 +1874,7 @@ section + .section-glow-top::before {
     opacity: 0;
 }
 .mobile-menu.mobile-menu-open {
-    max-height: 500px;
+    max-height: 900px;
     opacity: 1;
 }
 
@@ -2053,6 +1956,8 @@ section + .section-glow-top::before {
     max-width: 680px;
 }
 
+
+
 /* ===================== PAGE TRANSITION VEIL ===================== */
 #page-veil {
     position: fixed;
@@ -2065,5 +1970,53 @@ section + .section-glow-top::before {
 #page-veil.veil-hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* ===================== SCROLL-DOWN INDICATOR ===================== */
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* ===================== LIVE STATUS BADGE (Platforms nav) ===================== */
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 7px 1px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 9999px;
+    line-height: 1.6;
+    vertical-align: middle;
+}
+.live-dot {
+    position: relative;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: #10b981;
+    flex-shrink: 0;
+}
+.live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #10b981;
+    animation: live-dot-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes live-dot-ping {
+    0% { transform: scale(1); opacity: 0.6; }
+    75%, 100% { transform: scale(2.4); opacity: 0; }
 }
 
