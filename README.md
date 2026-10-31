@@ -11,8 +11,6 @@ index.html                 Homepage (contact form in #readiness)
 about.html  industries.html  services.html
 platforms/                 hms.html, fms.html (product pages)
 solutions/                 index.html + one page per solution
-partials/                  header.html, footer.html (shared site chrome)
-scripts/sync-chrome.py     Copies the partials into every page
 css/main.css               Base styles (index, about, solutions pages)
 css/site-chrome.css        Header, footer, forms, buttons, contrast layer, CTA band
 js/tw-config.js            Shared Tailwind config (colour tokens, fonts)
@@ -34,14 +32,7 @@ Use a local server rather than opening files directly, so relative paths and for
 
 ### Header and footer
 
-Do not edit the header/footer inside individual pages. Edit `partials/header.html` or `partials/footer.html`, then run:
-
-```bash
-python3 scripts/sync-chrome.py          # update all pages
-python3 scripts/sync-chrome.py --check  # verify, should report "0 page(s) out of date"
-```
-
-Pages must keep the `<!-- site-header:start/end -->` and `<!-- site-footer:start/end -->` markers. When adding a page, add it to `PAGES` in the script.
+The header and footer are repeated in every page between the `<!-- site-header:start/end -->` and `<!-- site-footer:start/end -->` markers. When you change them, apply the same edit to all 14 pages so they stay identical. Their styles and behaviour live in `css/site-chrome.css` and `js/site-chrome.js`.
 
 ### Colours and design
 
@@ -51,6 +42,7 @@ Colours live only in `js/tw-config.js` (loaded after the Tailwind CDN script on 
 - Emerald (`health`) only for HMS; amber (`field`) only for FMS and construction.
 - Status: emerald = live, amber = in development, slate = planned. Rose only for pain points and alerts.
 - Page flow: hero → sections alternating `bg-white` / `bg-slate-50` → closing CTA section with `sc-band-dark`. Light cards inside the band use `sc-band-card`.
+- Font: Inter only (JetBrains Mono for code/labels). Motion: keep animations for live status and feedback only; decorative loops are avoided and `prefers-reduced-motion` is honoured site-wide.
 - Text colours must meet WCAG AA; the contrast layer in `css/site-chrome.css` darkens light Tailwind shades automatically.
 
 ### Forms
@@ -61,6 +53,7 @@ All forms are handled by `js/site-chrome.js` via `data-sc-form` attributes. Unti
 
 - [ ] Set the real Formspree ID: replace `YOUR_FORM_ID` in `js/site-chrome.js`.
 - [ ] Remove `<meta name="robots" content="noindex, nofollow">` from `solutions/backup-recovery-data-resilience.html`, `cybersecurity-ai-governance.html`, `enterprise-ai.html` and `proxmox.html` once approved.
+- [ ] Ask the infra team to add security response headers on AWS (CloudFront response headers policy): `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN`, `Permissions-Policy`.
 - [ ] Unhide pending content when ready (search for `data-pending` and the hidden testimonials section).
 
 ## Deployment
@@ -85,8 +78,9 @@ css/site-chrome.css                          (new)
 js/main.js
 js/site-chrome.js                            (new)
 js/tw-config.js                              (new)
+images/partners/proxmox-logo.svg             (new)
 ```
 
-Do not send `partials/`, `scripts/`, `README.md` or `.gitignore`; they are for development only.
+Do not send `README.md` or `.gitignore`; they are for development only.
 
 `git status` lists the changed files for future releases.

@@ -199,7 +199,6 @@
         var words = document.querySelectorAll('.hero-word');
         var subtitle = document.querySelector('.hero-subtitle');
         var desc = document.querySelector('.hero-desc');
-        if (!words.length) return;
         words.forEach(function (w, i) {
             setTimeout(function () { w.classList.add('visible'); }, 300 + i * 200);
         });

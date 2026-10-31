@@ -310,3 +310,11 @@ section.sc-band-dark { background: radial-gradient(60% 80% at 50% 0%, rgba(14,16
 .sc-band-dark a.border-slate-300.bg-white:not(.sc-band-card *):hover { border-color: #7dd3fc; color: #fff; }
 .sc-band-dark .sc-band-card { border-color: rgba(255,255,255,.08); color: #334155; }
 :is(p,span,a,li,div,h3,h4,small,strong):is(.text-teal-500,.text-teal-600) { color: #0f766e; }
+
+/* Respect the OS "reduce motion" setting on every page, including inline page animations */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+.btn-primary, .btn-primary-health, .btn-outline { white-space: nowrap; }
+/* Homepage hero buttons match the standard hero CTA size used on other pages */
+#hero :is(.btn-primary, .btn-outline) { padding: .875rem 1.75rem; font-size: .875rem; font-weight: 600; }

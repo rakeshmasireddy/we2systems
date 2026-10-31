@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/tw-config.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -195,7 +195,6 @@
             border-radius: 9999px;
             color: #ffffff;
             background: linear-gradient(to right, #10b981, #0ea5e9);
-            animation: glow-pulse-health 3s ease-in-out infinite;
             transition: transform 300ms ease, opacity 300ms ease;
             text-decoration: none;
         }
@@ -341,7 +340,7 @@
                 </div>
 
                 <a href="#pranalink" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-200 text-sm font-medium text-emerald-700 fade-up hover:border-emerald-300 hover:shadow-sm transition-all duration-300 group" style="transition-delay:0.05s;">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     Flagship project: Project PranaLink
                     <i class="fa-solid fa-arrow-down text-xs text-emerald-400 group-hover:translate-y-0.5 transition-transform"></i>
                 </a>
@@ -532,7 +531,7 @@
             <!-- Header -->
             <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 mb-5">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                     <span class="text-xs font-semibold text-emerald-700 font-mono">Interactive demo</span>
                 </div>
                 <h2 class="font-bold text-slate-900 mb-4" style="font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.5rem);">See the platform in action.</h2>
@@ -541,27 +540,27 @@
 
             <!-- Role perspective tabs -->
             <div class="flex flex-wrap justify-center gap-2 mb-8 fade-up" style="transition-delay:0.1s;" id="role-tabs">
-                <button onclick="setRole('patient')" id="tab-patient" class="role-tab active-role flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
+                <button type="button" data-role="patient" aria-pressed="true" id="tab-patient" class="role-tab active-role flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
                     <span class="w-7 h-7 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">MP</span>
                     <span>Patient</span>
                     <span class="text-xs font-normal opacity-90">· Mobile · 5 screens</span>
                 </button>
-                <button onclick="setRole('doctor')" id="tab-doctor" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
+                <button type="button" data-role="doctor" aria-pressed="false" id="tab-doctor" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
                     <span class="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">AR</span>
                     <span>Doctor</span>
                     <span class="text-xs font-normal opacity-90">· Mobile · 4 screens</span>
                 </button>
-                <button onclick="setRole('frontdesk')" id="tab-frontdesk" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
+                <button type="button" data-role="frontdesk" aria-pressed="false" id="tab-frontdesk" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
                     <span class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">OS</span>
                     <span>Front Desk</span>
                     <span class="text-xs font-normal opacity-90">· Desktop · 3 screens</span>
                 </button>
-                <button onclick="setRole('labtech')" id="tab-labtech" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
+                <button type="button" data-role="labtech" aria-pressed="false" id="tab-labtech" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
                     <span class="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">LM</span>
                     <span>Lab Tech</span>
                     <span class="text-xs font-normal opacity-90">· Desktop · 2 screens</span>
                 </button>
-                <button onclick="setRole('admin')" id="tab-admin" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
+                <button type="button" data-role="admin" aria-pressed="false" id="tab-admin" class="role-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200">
                     <span class="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">HC</span>
                     <span>Hospital Admin</span>
                     <span class="text-xs font-normal opacity-90">· Desktop · 2 screens</span>
@@ -622,6 +621,8 @@
                         title="HMS platform interactive demo"
                         class="w-full h-full border-0"
                         loading="lazy"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
                     <!-- Fallback if iframe blocked -->
@@ -672,9 +673,15 @@
                 var desc = document.getElementById(roleDescs[r]);
                 var tab  = document.getElementById(roleTabs[r]);
                 if (desc) desc.classList.toggle('hidden', r !== role);
-                if (tab)  tab.classList.toggle('active-role', r === role);
+                if (tab) {
+                    tab.classList.toggle('active-role', r === role);
+                    tab.setAttribute('aria-pressed', r === role ? 'true' : 'false');
+                }
             });
         }
+        document.querySelectorAll('.role-tab[data-role]').forEach(function(tab) {
+            tab.addEventListener('click', function() { setRole(tab.getAttribute('data-role')); });
+        });
         // Detect iframe load failure and show fallback
         var frame = document.getElementById('lumen-demo-frame');
         if (frame) {

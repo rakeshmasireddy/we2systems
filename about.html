@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/tw-config.js"></script>
     <style>
         * { box-sizing: border-box; }
@@ -219,7 +219,7 @@
         <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl fade-up">
                 <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/15 text-sm font-medium text-primary/90 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-primary mr-2.5 animate-pulse"></span>
+                    <span class="w-2 h-2 rounded-full bg-primary mr-2.5"></span>
                      Bangalore, India
                 </div>
                 <h1 class="font-bold text-slate-900 leading-tight mb-6" style="font-size: clamp(2.25rem, 1.8rem + 3vw, 4rem);">
@@ -244,7 +244,7 @@
     <!-- ===================== WHO WE ARE ===================== -->
     <section class="py-24 bg-white relative">
         <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                 <!-- Left: text -->
                 <div class="fade-up">
@@ -262,6 +262,17 @@
                     <div class="bg-white rounded-2xl border border-slate-200 p-8 hover:border-primary/30 hover:shadow-md transition-all duration-300 text-center mb-4" hidden data-pending="platform-count">
                         <p class="font-bold text-slate-900 mb-1" style="font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);">6+</p>
                         <p class="text-sm text-slate-500 font-medium">Business Platforms Built</p>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-7 sm:p-8 mb-4">
+                        <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-5">One team, idea to production</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-slate-700">
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-code text-xs" aria-hidden="true"></i></span>Application engineering</li>
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-cloud text-xs" aria-hidden="true"></i></span>Cloud infrastructure consulting</li>
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-code-branch text-xs" aria-hidden="true"></i></span>DevOps &amp; Infrastructure as Code</li>
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-database text-xs" aria-hidden="true"></i></span>Data protection</li>
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-shield-halved text-xs" aria-hidden="true"></i></span>Security</li>
+                            <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-robot text-xs" aria-hidden="true"></i></span>AI automation</li>
+                        </ul>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="bg-slate-50 rounded-xl border border-slate-200 py-4 px-2 text-center">
