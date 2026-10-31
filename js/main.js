@@ -60,9 +60,7 @@
         els.forEach(function (el) { obs.observe(el); });
     })();
 
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const nav = document.getElementById('header');
+    const nav = document.getElementById('site-header');
 
     // == Smooth scrolling ==
     function scrollToAnchor(target) {
@@ -101,25 +99,6 @@
         preloader.addEventListener('transitionend', function () {
             preloader.remove();
         });
-    }
-
-    // === Mobile menu ===
-    if (btn && menu) {
-        btn.addEventListener('click', function () { menu.classList.toggle('mobile-menu-open'); });
-        menu.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () { menu.classList.remove('mobile-menu-open'); });
-        });
-    }
-
-    // === Nav shadow on scroll + header-active ===
-    if (nav) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg', 'shadow-black/20', 'scrolled', 'header-active');
-            } else {
-                nav.classList.remove('shadow-lg', 'shadow-black/20', 'scrolled', 'header-active');
-            }
-        }, { passive: true });
     }
 
     // === Scroll Progress Bar ===
@@ -477,8 +456,8 @@
 
     // === Active Nav Section Highlight (IntersectionObserver) ===
     (function initActiveNav() {
-        var sectionIds = ['hero', 'focus', 'process', 'technologies', 'why', 'readiness', 'insights'];
-        var navLinks = document.querySelectorAll('#header .hidden.md\\:flex a[href^="#"]:not([class*="bg-gradient"])');
+        var sectionIds = ['hero', 'capabilities', 'industry-platforms', 'partners', 'process', 'insights', 'faq', 'readiness'];
+        var navLinks = document.querySelectorAll('#site-header .sc-nav-link[href^="#"]');
         var linkMap = {};
         navLinks.forEach(function (link) {
             var href = link.getAttribute('href');
@@ -491,9 +470,9 @@
             entries.forEach(function (entry) {
                 var id = entry.target.id;
                 if (entry.isIntersecting) {
-                    navLinks.forEach(function (l) { l.classList.remove('nav-link-active'); });
+                    navLinks.forEach(function (l) { l.classList.remove('is-active'); });
                     if (linkMap[id]) {
-                        linkMap[id].classList.add('nav-link-active');
+                        linkMap[id].classList.add('is-active');
                         currentActive = id;
                     }
                 }
@@ -503,66 +482,6 @@
         sectionIds.forEach(function (id) {
             var sec = document.getElementById(id);
             if (sec) observer.observe(sec);
-        });
-    })();
-
-    // === Contact Form Validation ===
-    (function initContactForm() {
-        var form = document.getElementById('contact-form');
-        if (!form) return;
-
-        var inputs = form.querySelectorAll('.form-input');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var valid = true;
-
-            inputs.forEach(function (input) {
-                input.classList.remove('error');
-                if (input.dataset.optional) return;
-                var val = input.value.trim();
-                if (!val) {
-                    input.classList.add('error');
-                    valid = false;
-                }
-                if (input.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-                    input.classList.add('error');
-                    valid = false;
-                }
-            });
-
-            if (!valid) return;
-
-            // Collect form data
-            var name = form.querySelector('[name="name"]').value.trim();
-            var company = form.querySelector('[name="company"]').value.trim();
-            var email = form.querySelector('[name="email"]').value.trim();
-            var challenge = form.querySelector('[name="challenge"]').value.trim();
-
-            // Hide form, show success
-            var formWrapper = document.getElementById('cta-form-wrapper');
-            if (formWrapper) formWrapper.style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-
-            // TODO: Replace with actual backend API call (e.g., POST /api/contact)
-            // Mailto fallback after short delay so user sees the success message
-            setTimeout(function () {
-                var subject = encodeURIComponent('Talk to an Architect — ' + company);
-                var body = encodeURIComponent(
-                    'Name: ' + name + '\n' +
-                    'Company: ' + company + '\n' +
-                    'Email: ' + email + '\n\n' +
-                    'Challenge:\n' + challenge
-                );
-                window.location.href = 'mailto:hello@we2systems.com?subject=' + subject + '&body=' + body;
-            }, 600);
-        });
-
-        // Remove error + shake on input
-        inputs.forEach(function (input) {
-            input.addEventListener('input', function () {
-                input.classList.remove('error');
-            });
         });
     })();
 

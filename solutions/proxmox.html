@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proxmox Authorized Reseller | We2 Systems</title>
+    <meta name="description" content="Discuss Proxmox virtualization assessment, subscription guidance and migration planning with We2 Systems, an Authorized Reseller Partner.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://we2systems.com/solutions/proxmox.html">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/tw-config.js"></script>
+    <link rel="stylesheet" href="../css/site-chrome.css">
+    <script src="../js/site-chrome.js" defer></script>
+</head>
+<body class="font-sans antialiased text-slate-800">
+    <!-- site-header:start -->
+    <a href="#main-content" class="sc-skip">Skip to content</a>
+    <nav id="site-header" class="sc-header" aria-label="Main navigation">
+        <div class="sc-container sc-header-bar">
+            <a href="../index.html" class="sc-logo" aria-label="We2 Systems home">we<span class="sc-gradient-text">2</span>systems</a>
+
+            <div class="sc-nav-pill">
+                <div class="sc-dd">
+                    <button type="button" class="sc-nav-link sc-dd-btn" aria-expanded="false" aria-controls="sc-platforms-menu">
+                        Platforms <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i>
+                    </button>
+                    <div id="sc-platforms-menu" class="sc-dd-menu">
+                        <a href="../platforms/fms.html" class="sc-dd-item">
+                            <span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></span>
+                            <span><span class="sc-dd-title">FMS Workforce Management <span class="sc-badge sc-badge-soon">Early access</span></span><span class="sc-dd-sub">Field &amp; workforce operations</span></span>
+                        </a>
+                        <a href="../platforms/hms.html" class="sc-dd-item">
+                            <span class="sc-dd-icon sc-tint-teal"><i class="fa-solid fa-hospital" aria-hidden="true"></i></span>
+                            <span><span class="sc-dd-title">Healthcare Workflow Platform</span><span class="sc-dd-sub">HMS — hospital management</span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sc-dd">
+                    <button type="button" class="sc-nav-link sc-dd-btn" aria-expanded="false" aria-controls="sc-solutions-menu">
+                        Solutions <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i>
+                    </button>
+                    <div id="sc-solutions-menu" class="sc-dd-menu sc-dd-wide">
+                        <div class="sc-dd-grid">
+                            <div>
+                                <p class="sc-dd-heading">Cloud &amp; Infrastructure</p>
+                                <a href="../solutions/platform-engineering.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><span class="sc-dd-title">Platform Engineering</span></a>
+                                <a href="../solutions/platform-engineering.html#reliability-ai-operations" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span><span class="sc-dd-title">Reliability &amp; AI Operations</span></a>
+                                <a href="../solutions/proxmox.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-server" aria-hidden="true"></i></span><span class="sc-dd-title">Proxmox Virtualization</span></a>
+                                <a href="../solutions/backup-recovery-data-resilience.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-database" aria-hidden="true"></i></span><span class="sc-dd-title">Data Resilience</span></a>
+                                <a href="../solutions/cloud-infrastructure-consulting.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-brands fa-aws" aria-hidden="true"></i></span><span class="sc-dd-title">Cloud Infrastructure Consulting</span></a>
+                                <a href="../solutions/devops-infrastructure-as-code.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span><span class="sc-dd-title">DevOps &amp; Infrastructure as Code</span></a>
+                            </div>
+                            <div>
+                                <p class="sc-dd-heading sc-dd-heading-accent">Security, AI &amp; Applications</p>
+                                <a href="../solutions/cybersecurity-ai-governance.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-lock" aria-hidden="true"></i></span><span class="sc-dd-title">Cybersecurity &amp; AI Governance</span></a>
+                                <a href="../solutions/enterprise-ai.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-robot" aria-hidden="true"></i></span><span class="sc-dd-title">Enterprise AI</span></a>
+                                <a href="../services.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-code" aria-hidden="true"></i></span><span class="sc-dd-title">Application, Data &amp; Automation Services</span></a>
+                            </div>
+                        </div>
+                        <a href="../solutions/index.html" class="sc-dd-all">View all solutions <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <a href="../industries.html" class="sc-nav-link">Industries</a>
+                <a href="../index.html#insights" class="sc-nav-link">Insights</a>
+                <a href="../about.html" class="sc-nav-link">About We2</a>
+                <a href="../index.html#partners" class="sc-nav-link">Partners</a>
+                <a href="../index.html?interest=proxmox#readiness" class="sc-nav-link">Contact</a>
+            </div>
+
+            <a href="../index.html?interest=proxmox#readiness" class="sc-cta sc-desktop-only">Talk to an Architect <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+
+            <button type="button" id="sc-menu-btn" class="sc-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sc-mobile-menu">
+                <span class="sc-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+
+        <div id="sc-mobile-menu" class="sc-mobile-menu">
+            <div class="sc-mobile-inner">
+                <details class="sc-acc">
+                    <summary>Platforms <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i></summary>
+                    <div class="sc-acc-body">
+                        <a href="../platforms/fms.html">FMS Workforce Management <span class="sc-badge sc-badge-soon">Early access</span></a>
+                        <a href="../platforms/hms.html">Healthcare Workflow Platform</a>
+                    </div>
+                </details>
+                <details class="sc-acc">
+                    <summary>Solutions <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i></summary>
+                    <div class="sc-acc-body">
+                        <a href="../solutions/platform-engineering.html">Platform Engineering</a>
+                        <a href="../solutions/platform-engineering.html#reliability-ai-operations">Reliability &amp; AI Operations</a>
+                        <a href="../solutions/proxmox.html">Proxmox Virtualization</a>
+                        <a href="../solutions/backup-recovery-data-resilience.html">Data Resilience</a>
+                        <a href="../solutions/cloud-infrastructure-consulting.html">Cloud Infrastructure Consulting</a>
+                        <a href="../solutions/devops-infrastructure-as-code.html">DevOps &amp; Infrastructure as Code</a>
+                        <a href="../solutions/cybersecurity-ai-governance.html">Cybersecurity &amp; AI Governance</a>
+                        <a href="../solutions/enterprise-ai.html">Enterprise AI</a>
+                        <a href="../services.html">Application, Data &amp; Automation Services</a>
+                        <a href="../solutions/index.html" class="sc-acc-all">View all solutions</a>
+                    </div>
+                </details>
+                <a href="../industries.html" class="sc-mobile-link">Industries</a>
+                <a href="../index.html#insights" class="sc-mobile-link">Insights</a>
+                <a href="../about.html" class="sc-mobile-link">About We2</a>
+                <a href="../index.html#partners" class="sc-mobile-link">Partners</a>
+                <a href="../index.html?interest=proxmox#readiness" class="sc-mobile-link">Contact</a>
+                <a href="../index.html?interest=proxmox#readiness" class="sc-cta sc-cta-block">Talk to an Architect</a>
+            </div>
+        </div>
+    </nav>
+    <!-- site-header:end -->
+
+    <main class="pt-20">
+        <section class="pt-16 pb-20 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.025)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
+            <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/5 filter blur-[140px] pointer-events-none"></div>
+            <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/15 text-sm font-medium text-primary mb-8">
+                        <span class="w-2 h-2 rounded-full bg-primary mr-2.5 animate-pulse"></span>
+                        Proxmox · Authorized Reseller Partner
+                    </div>
+                    <h1 class="font-bold text-slate-900 leading-tight mb-6" style="font-size: clamp(2.25rem, 1.8rem + 3vw, 4rem);">Proxmox virtualization and <span class="text-gradient">infrastructure modernization</span></h1>
+                    <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl">We2 Systems is an Authorized Reseller Partner of Proxmox. We help organizations evaluate virtualization requirements and plan infrastructure modernization around workload needs, operational readiness and commercial priorities.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                        <a href="../index.html?interest=proxmox#readiness" class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-primary/20">
+                            Talk to an Architect <i class="fa-solid fa-arrow-right ml-2.5" aria-hidden="true"></i>
+                        </a>
+                        <a href="#overview" class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full text-slate-700 bg-white border border-slate-200 hover:border-primary/40 hover:bg-slate-50 transition-all duration-200">
+                            See how we help <i class="fa-solid fa-chevron-down ml-2.5 text-sm" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="py-20 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mb-12">
+                    <h2 class="font-heading font-bold text-slate-900 mb-4" style="font-size:clamp(1.875rem, 1.5rem + 2vw, 3rem)">Plan the right virtualization foundation</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                        <i class="fa-solid fa-magnifying-glass-chart text-primary text-xl mb-4" aria-hidden="true"></i>
+                        <h3 class="font-semibold text-slate-900 mb-2">Assessment and architecture</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Review workloads, dependencies, capacity, availability requirements and operating processes before selecting a target design.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                        <i class="fa-solid fa-route text-primary text-xl mb-4" aria-hidden="true"></i>
+                        <h3 class="font-semibold text-slate-900 mb-2">Migration planning</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Define compatibility checks, a pilot scope, migration sequencing, rollback steps and acceptance tests.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                        <i class="fa-solid fa-receipt text-primary text-xl mb-4" aria-hidden="true"></i>
+                        <h3 class="font-semibold text-slate-900 mb-2">Subscription guidance</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Discuss suitable Proxmox subscription options and the support arrangements required for your environment.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                        <i class="fa-solid fa-database text-primary text-xl mb-4" aria-hidden="true"></i>
+                        <h3 class="font-semibold text-slate-900 mb-2">Backup and recovery planning</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Define protection and restore testing requirements alongside virtualization design. Select backup tooling after checking platform and version compatibility.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="rounded-3xl border border-primary/15 bg-gradient-to-br from-primary/5 to-accent/5 p-8 sm:p-12">
+                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-primary mb-3">Our approach</p>
+                    <h2 class="font-heading font-bold text-slate-900 mb-5" style="font-size:clamp(1.875rem, 1.5rem + 2vw, 3rem)">Evaluate before you migrate</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed">We begin with discovery, validate the proposed approach through a scoped pilot, and agree the migration and operating plan before production rollout.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 sc-band-dark">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-heading font-bold text-slate-900 mb-4" style="font-size:clamp(1.875rem, 1.5rem + 2vw, 3rem)">Discuss your virtualization requirements</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">Talk with We2 about your workloads, operational readiness and commercial priorities.</p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="../index.html?interest=proxmox#readiness" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3.5 font-semibold text-white hover:opacity-90">
+                        Discuss Proxmox with We2 <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.proxmox.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-700 hover:border-primary/40">
+                        Visit Proxmox <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- site-footer:start -->
+    <footer id="site-footer" class="sc-footer">
+        <div class="sc-container">
+            <div class="sc-newsletter">
+                <div>
+                    <h2 class="sc-newsletter-title">Stay ahead of infrastructure trends</h2>
+                    <p class="sc-newsletter-text">Monthly insights on platform engineering, security and hybrid cloud — no spam, just signal.</p>
+                </div>
+                <div class="sc-newsletter-form-wrap">
+                    <form class="sc-newsletter-form" data-sc-form="newsletter" data-sc-subject="Newsletter subscription" novalidate>
+                        <label for="sc-newsletter-email" class="sc-sr-only">Email address</label>
+                        <input id="sc-newsletter-email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required class="sc-input">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sc-hp" aria-hidden="true">
+                        <button type="submit" class="sc-btn">Subscribe</button>
+                    </form>
+                    <p class="sc-form-msg" data-sc-form-msg role="status" aria-live="polite"></p>
+                </div>
+            </div>
+
+            <div class="sc-footer-grid">
+                <div class="sc-footer-brand">
+                    <a href="../index.html" class="sc-logo" aria-label="We2 Systems home">we<span class="sc-gradient-text">2</span>systems</a>
+                    <p>We2 Systems builds intelligent business platforms and the secure cloud infrastructure behind them.</p>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Platforms</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../platforms/fms.html">FMS Workforce Management</a></li>
+                        <li><a href="../platforms/hms.html">Healthcare Workflow Platform</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Solutions</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../solutions/cybersecurity-ai-governance.html">Cybersecurity &amp; AI Governance</a></li>
+                        <li><a href="../solutions/proxmox.html">Proxmox Virtualization</a></li>
+                        <li><a href="../solutions/platform-engineering.html#reliability-ai-operations">Reliability &amp; AI Operations</a></li>
+                        <li><a href="../solutions/backup-recovery-data-resilience.html">Data Resilience</a></li>
+                        <li><a href="../solutions/enterprise-ai.html">Enterprise AI</a></li>
+                        <li><a href="../solutions/platform-engineering.html">Platform Engineering</a></li>
+                        <li><a href="../solutions/cloud-infrastructure-consulting.html">Cloud Infrastructure Consulting</a></li>
+                        <li><a href="../solutions/devops-infrastructure-as-code.html">DevOps &amp; Infrastructure as Code</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Company</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../about.html">About We2</a></li>
+                        <li><a href="../industries.html">Industries</a></li>
+                        <li><a href="../solutions/index.html">All Solutions</a></li>
+                        <li><a href="../index.html#insights">Insights</a></li>
+                        <li><a href="../index.html#partners">Partners</a></li>
+                        <li><a href="../index.html?interest=proxmox#readiness">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Get in Touch</h2>
+                    <ul class="sc-contact-list">
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                            <span><span class="sc-contact-label">Innovation Centre</span><a href="https://maps.google.com/?q=Jayanagar+5th+Block+Bangalore" target="_blank" rel="noopener noreferrer">Jayanagar 5th Block<br>Bangalore, India</a></span>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+                            <span><span class="sc-contact-label">Registered Office</span>M/S. WE2 Systems Pvt Ltd<br>#402, 4th Floor, 6-3-249/6, Alcazar Plaza and Towers<br>Road #1, Banjara Hills, Hyderabad 500034<br>Telangana, India</span>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <a href="mailto:hello@we2systems.com">hello@we2systems.com</a>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                            <a href="tel:+919611911883">+91 96119 11883</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sc-footer-bottom">
+                <p>&copy; <span data-sc-year>2026</span> We2 Systems Pvt Ltd. All rights reserved.</p>
+                <div class="sc-footer-legal">
+                    <button type="button" data-sc-legal="privacy">Privacy Policy</button>
+                    <button type="button" data-sc-legal="terms">Terms of Service</button>
+                    <span>Made with <i class="fa-solid fa-heart" aria-hidden="true"></i> in India</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="sc-legal-modal" class="sc-modal" role="dialog" aria-modal="true" aria-labelledby="sc-legal-title" hidden>
+        <div class="sc-modal-card">
+            <button type="button" class="sc-modal-close" data-sc-legal-close aria-label="Close">&times;</button>
+            <h2 id="sc-legal-title" class="sc-modal-title"></h2>
+            <p class="sc-modal-body" data-sc-legal-body></p>
+        </div>
+    </div>
+    <!-- site-footer:end -->
+</body>
+</html>

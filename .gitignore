@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*~
+
+# AI assistant local settings
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node (only used for local QA tooling)
+node_modules/
+package-lock.json
+
+# Logs, local env and build/test artefacts
+*.log
+.env
+.env.*
+screenshots/
+qa/

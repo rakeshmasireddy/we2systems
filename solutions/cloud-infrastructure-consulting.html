@@ -3,55 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Infrastructure Consulting — AWS, Azure & Hybrid Cloud | we2systems</title>
-    <meta name="description" content="we2systems helps organizations design, modernize and operate cloud and hybrid infrastructure across AWS, Azure, on-prem and edge environments. Workload-first cloud advisory and migration.">
+    <title>Cloud Infrastructure Consulting — AWS, Azure & Hybrid Cloud | We2 Systems</title>
+    <link rel="canonical" href="https://we2systems.com/solutions/cloud-infrastructure-consulting.html">
+    <meta name="description" content="We2 Systems helps organizations design, modernize and operate cloud and hybrid infrastructure across AWS, Azure, on-prem and edge environments. Workload-first cloud advisory and migration.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230ea5e9'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='18' fill='white'%3Ew2%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Helvetica Neue', 'sans-serif'],
-                        heading: ['Inter', 'Helvetica Neue', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#0ea5e9',
-                        primaryHover: '#38bdf8',
-                        accent: '#6366f1',
-                        accentHover: '#818cf8',
-                        dark: {
-                            950: '#f8fafc',
-                            900: '#ffffff',
-                            800: '#f1f5f9',
-                            700: '#e2e8f0',
-                            600: '#cbd5e1',
-                            500: '#94a3b8'
-                        },
-                    },
-                    maxWidth: {
-                        'site': '1200px',
-                    },
-                    boxShadow: {
-                        glow: '0 0 25px rgba(14, 165, 233, 0.35)',
-                        'glow-lg': '0 0 50px rgba(14, 165, 233, 0.2)',
-                        'glow-accent': '0 0 25px rgba(99, 102, 241, 0.35)',
-                    }
-                }
-            }
-        };
-    </script>
+    <script src="../js/tw-config.js"></script>
     <style>
         * { box-sizing: border-box; }
         body { background: #ffffff; color: #1e293b; -webkit-font-smoothing: antialiased; }
 
         .text-gradient {
-            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            background: linear-gradient(135deg, #0284c7, #4f46e5);
             background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
@@ -133,6 +100,8 @@
             75%, 100% { transform: scale(2.4); opacity: 0; }
         }
     </style>
+    <link rel="stylesheet" href="../css/site-chrome.css">
+    <script src="../js/site-chrome.js" defer></script>
 </head>
 <body class="font-sans antialiased">
 
@@ -140,60 +109,101 @@
     <div id="page-veil"></div>
 
     <!-- ===================== NAV ===================== -->
-    <nav class="nav-glass fixed w-full z-50">
-        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="../index.html" class="font-bold text-xl tracking-tight text-slate-900">
-                    we<span class="text-gradient">2</span>systems
-                </a>
+    <!-- site-header:start -->
+    <a href="#main-content" class="sc-skip">Skip to content</a>
+    <nav id="site-header" class="sc-header" aria-label="Main navigation">
+        <div class="sc-container sc-header-bar">
+            <a href="../index.html" class="sc-logo" aria-label="We2 Systems home">we<span class="sc-gradient-text">2</span>systems</a>
 
-                <div class="hidden md:flex space-x-1 items-center bg-slate-100 rounded-full px-2 py-1.5 border border-slate-200">
-                    <a href="../index.html" class="relative text-sm font-medium text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300 flex items-center gap-1.5">
-                        <i class="fa-solid fa-house text-xs"></i> Home
-                    </a>
-                    <div class="relative" id="platforms-nav-wrapper">
-                        <button id="platforms-nav-btn" onclick="togglePlatformsNav()" class="text-sm font-medium text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300 flex items-center gap-1.5 focus:outline-none">
-                            Platforms <i id="platforms-chevron" class="fa-solid fa-chevron-down text-xs transition-transform duration-200 text-slate-400"></i>
-                        </button>
-                        <div id="platforms-dropdown" class="platforms-dropdown">
-                            <a href="../platforms/fms.html" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-50 transition-colors rounded-lg group">
-                                FMS <span class="live-badge"><span class="live-dot"></span>Live</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-primary transition-colors"></i>
-                            </a>
-                            <a href="../platforms/hms.html" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-50 transition-colors rounded-lg group">
-                                HMS <span class="live-badge"><span class="live-dot"></span>Live</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-primary transition-colors"></i>
-                            </a>
-                        </div>
+            <div class="sc-nav-pill">
+                <div class="sc-dd">
+                    <button type="button" class="sc-nav-link sc-dd-btn" aria-expanded="false" aria-controls="sc-platforms-menu">
+                        Platforms <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i>
+                    </button>
+                    <div id="sc-platforms-menu" class="sc-dd-menu">
+                        <a href="../platforms/fms.html" class="sc-dd-item">
+                            <span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></span>
+                            <span><span class="sc-dd-title">FMS Workforce Management <span class="sc-badge sc-badge-soon">Early access</span></span><span class="sc-dd-sub">Field &amp; workforce operations</span></span>
+                        </a>
+                        <a href="../platforms/hms.html" class="sc-dd-item">
+                            <span class="sc-dd-icon sc-tint-teal"><i class="fa-solid fa-hospital" aria-hidden="true"></i></span>
+                            <span><span class="sc-dd-title">Healthcare Workflow Platform</span><span class="sc-dd-sub">HMS — hospital management</span></span>
+                        </a>
                     </div>
-                    <a href="../index.html#technologies" class="text-sm font-medium text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">Partners</a>
-                    <a href="../index.html#readiness" class="text-sm font-medium text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full hover:bg-slate-200/70 transition-all duration-300">Contact</a>
                 </div>
+                <div class="sc-dd">
+                    <button type="button" class="sc-nav-link sc-dd-btn" aria-expanded="false" aria-controls="sc-solutions-menu">
+                        Solutions <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i>
+                    </button>
+                    <div id="sc-solutions-menu" class="sc-dd-menu sc-dd-wide">
+                        <div class="sc-dd-grid">
+                            <div>
+                                <p class="sc-dd-heading">Cloud &amp; Infrastructure</p>
+                                <a href="../solutions/platform-engineering.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><span class="sc-dd-title">Platform Engineering</span></a>
+                                <a href="../solutions/platform-engineering.html#reliability-ai-operations" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span><span class="sc-dd-title">Reliability &amp; AI Operations</span></a>
+                                <a href="../solutions/proxmox.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-server" aria-hidden="true"></i></span><span class="sc-dd-title">Proxmox Virtualization</span></a>
+                                <a href="../solutions/backup-recovery-data-resilience.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-database" aria-hidden="true"></i></span><span class="sc-dd-title">Data Resilience</span></a>
+                                <a href="../solutions/cloud-infrastructure-consulting.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-brands fa-aws" aria-hidden="true"></i></span><span class="sc-dd-title">Cloud Infrastructure Consulting</span></a>
+                                <a href="../solutions/devops-infrastructure-as-code.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-primary"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span><span class="sc-dd-title">DevOps &amp; Infrastructure as Code</span></a>
+                            </div>
+                            <div>
+                                <p class="sc-dd-heading sc-dd-heading-accent">Security, AI &amp; Applications</p>
+                                <a href="../solutions/cybersecurity-ai-governance.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-lock" aria-hidden="true"></i></span><span class="sc-dd-title">Cybersecurity &amp; AI Governance</span></a>
+                                <a href="../solutions/enterprise-ai.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-robot" aria-hidden="true"></i></span><span class="sc-dd-title">Enterprise AI</span></a>
+                                <a href="../services.html" class="sc-dd-item"><span class="sc-dd-icon sc-tint-accent"><i class="fa-solid fa-code" aria-hidden="true"></i></span><span class="sc-dd-title">Application, Data &amp; Automation Services</span></a>
+                            </div>
+                        </div>
+                        <a href="../solutions/index.html" class="sc-dd-all">View all solutions <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <a href="../industries.html" class="sc-nav-link">Industries</a>
+                <a href="../index.html#insights" class="sc-nav-link">Insights</a>
+                <a href="../about.html" class="sc-nav-link">About We2</a>
+                <a href="../index.html#partners" class="sc-nav-link">Partners</a>
+                <a href="../index.html#readiness" class="sc-nav-link">Contact</a>
+            </div>
 
-                <a href="../index.html#readiness" class="hidden md:inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-sm transition-all duration-300">
-                    Talk to an Architect <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </a>
+            <a href="../index.html#readiness" class="sc-cta sc-desktop-only">Talk to an Architect <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 
-                <button id="mobile-menu-btn" class="md:hidden text-slate-600 focus:outline-none">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
+            <button type="button" id="sc-menu-btn" class="sc-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sc-mobile-menu">
+                <span class="sc-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+
+        <div id="sc-mobile-menu" class="sc-mobile-menu">
+            <div class="sc-mobile-inner">
+                <details class="sc-acc">
+                    <summary>Platforms <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i></summary>
+                    <div class="sc-acc-body">
+                        <a href="../platforms/fms.html">FMS Workforce Management <span class="sc-badge sc-badge-soon">Early access</span></a>
+                        <a href="../platforms/hms.html">Healthcare Workflow Platform</a>
+                    </div>
+                </details>
+                <details class="sc-acc">
+                    <summary>Solutions <i class="fa-solid fa-chevron-down sc-chevron" aria-hidden="true"></i></summary>
+                    <div class="sc-acc-body">
+                        <a href="../solutions/platform-engineering.html">Platform Engineering</a>
+                        <a href="../solutions/platform-engineering.html#reliability-ai-operations">Reliability &amp; AI Operations</a>
+                        <a href="../solutions/proxmox.html">Proxmox Virtualization</a>
+                        <a href="../solutions/backup-recovery-data-resilience.html">Data Resilience</a>
+                        <a href="../solutions/cloud-infrastructure-consulting.html">Cloud Infrastructure Consulting</a>
+                        <a href="../solutions/devops-infrastructure-as-code.html">DevOps &amp; Infrastructure as Code</a>
+                        <a href="../solutions/cybersecurity-ai-governance.html">Cybersecurity &amp; AI Governance</a>
+                        <a href="../solutions/enterprise-ai.html">Enterprise AI</a>
+                        <a href="../services.html">Application, Data &amp; Automation Services</a>
+                        <a href="../solutions/index.html" class="sc-acc-all">View all solutions</a>
+                    </div>
+                </details>
+                <a href="../industries.html" class="sc-mobile-link">Industries</a>
+                <a href="../index.html#insights" class="sc-mobile-link">Insights</a>
+                <a href="../about.html" class="sc-mobile-link">About We2</a>
+                <a href="../index.html#partners" class="sc-mobile-link">Partners</a>
+                <a href="../index.html#readiness" class="sc-mobile-link">Contact</a>
+                <a href="../index.html#readiness" class="sc-cta sc-cta-block">Talk to an Architect</a>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur-2xl px-4 pt-3 pb-4 space-y-1">
-            <a href="../index.html" class="flex items-center gap-2 px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-100 transition-colors min-h-[48px]">
-                <i class="fa-solid fa-house text-sm"></i> Home
-            </a>
-            <a href="../platforms/fms.html" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-100 transition-colors min-h-[48px]">
-                Platforms — FMS <span class="live-badge"><span class="live-dot"></span>Live</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-            </a>
-            <a href="../platforms/hms.html" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-100 transition-colors min-h-[48px]">
-                Platforms — HMS <span class="live-badge"><span class="live-dot"></span>Live</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-            </a>
-            <a href="../index.html#technologies" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">Partners</a>
-            <a href="../index.html#readiness" class="block px-4 py-3.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 min-h-[48px] flex items-center">Contact</a>
-            <a href="../index.html#readiness" class="block w-full text-center mt-3 px-6 py-3.5 text-base font-semibold rounded-lg text-white bg-primary">Talk to an Architect</a>
-        </div>
     </nav>
+    <!-- site-header:end -->
 
     <!-- ===================== HERO ===================== -->
     <section class="pt-36 pb-20 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 relative overflow-hidden">
@@ -315,7 +325,7 @@
     </section>
 
     <!-- ===================== CTA ===================== -->
-    <section class="py-24 bg-white">
+    <section class="py-24 sc-band-dark">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
             <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-4">Cloud Infrastructure Assessment</p>
             <h2 class="font-bold text-slate-900 mb-5" style="font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);">Ready to get started?</h2>
@@ -332,20 +342,107 @@
     </section>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="py-10 border-t border-slate-100 bg-slate-50">
-        <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <a href="../index.html" class="font-bold text-xl text-slate-900">we<span class="text-gradient">2</span>systems</a>
-                <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate-500">
-                    <a href="../services.html" class="hover:text-primary transition-colors">Services</a>
-                    <a href="../industries.html" class="hover:text-primary transition-colors">Industries</a>
-                    <a href="../platforms/hms.html" class="hover:text-primary transition-colors">HMS Platform</a>
-                    <a href="../index.html#readiness" class="hover:text-primary transition-colors">Contact</a>
-                </nav>
-                <p class="text-sm text-slate-400">&copy; 2026 we2systems</p>
+    <!-- site-footer:start -->
+    <footer id="site-footer" class="sc-footer">
+        <div class="sc-container">
+            <div class="sc-newsletter">
+                <div>
+                    <h2 class="sc-newsletter-title">Stay ahead of infrastructure trends</h2>
+                    <p class="sc-newsletter-text">Monthly insights on platform engineering, security and hybrid cloud — no spam, just signal.</p>
+                </div>
+                <div class="sc-newsletter-form-wrap">
+                    <form class="sc-newsletter-form" data-sc-form="newsletter" data-sc-subject="Newsletter subscription" novalidate>
+                        <label for="sc-newsletter-email" class="sc-sr-only">Email address</label>
+                        <input id="sc-newsletter-email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required class="sc-input">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sc-hp" aria-hidden="true">
+                        <button type="submit" class="sc-btn">Subscribe</button>
+                    </form>
+                    <p class="sc-form-msg" data-sc-form-msg role="status" aria-live="polite"></p>
+                </div>
+            </div>
+
+            <div class="sc-footer-grid">
+                <div class="sc-footer-brand">
+                    <a href="../index.html" class="sc-logo" aria-label="We2 Systems home">we<span class="sc-gradient-text">2</span>systems</a>
+                    <p>We2 Systems builds intelligent business platforms and the secure cloud infrastructure behind them.</p>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Platforms</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../platforms/fms.html">FMS Workforce Management</a></li>
+                        <li><a href="../platforms/hms.html">Healthcare Workflow Platform</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Solutions</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../solutions/cybersecurity-ai-governance.html">Cybersecurity &amp; AI Governance</a></li>
+                        <li><a href="../solutions/proxmox.html">Proxmox Virtualization</a></li>
+                        <li><a href="../solutions/platform-engineering.html#reliability-ai-operations">Reliability &amp; AI Operations</a></li>
+                        <li><a href="../solutions/backup-recovery-data-resilience.html">Data Resilience</a></li>
+                        <li><a href="../solutions/enterprise-ai.html">Enterprise AI</a></li>
+                        <li><a href="../solutions/platform-engineering.html">Platform Engineering</a></li>
+                        <li><a href="../solutions/cloud-infrastructure-consulting.html">Cloud Infrastructure Consulting</a></li>
+                        <li><a href="../solutions/devops-infrastructure-as-code.html">DevOps &amp; Infrastructure as Code</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Company</h2>
+                    <ul class="sc-footer-links">
+                        <li><a href="../about.html">About We2</a></li>
+                        <li><a href="../industries.html">Industries</a></li>
+                        <li><a href="../solutions/index.html">All Solutions</a></li>
+                        <li><a href="../index.html#insights">Insights</a></li>
+                        <li><a href="../index.html#partners">Partners</a></li>
+                        <li><a href="../index.html#readiness">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="sc-footer-heading">Get in Touch</h2>
+                    <ul class="sc-contact-list">
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                            <span><span class="sc-contact-label">Innovation Centre</span><a href="https://maps.google.com/?q=Jayanagar+5th+Block+Bangalore" target="_blank" rel="noopener noreferrer">Jayanagar 5th Block<br>Bangalore, India</a></span>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+                            <span><span class="sc-contact-label">Registered Office</span>M/S. WE2 Systems Pvt Ltd<br>#402, 4th Floor, 6-3-249/6, Alcazar Plaza and Towers<br>Road #1, Banjara Hills, Hyderabad 500034<br>Telangana, India</span>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <a href="mailto:hello@we2systems.com">hello@we2systems.com</a>
+                        </li>
+                        <li>
+                            <span class="sc-contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                            <a href="tel:+919611911883">+91 96119 11883</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sc-footer-bottom">
+                <p>&copy; <span data-sc-year>2026</span> We2 Systems Pvt Ltd. All rights reserved.</p>
+                <div class="sc-footer-legal">
+                    <button type="button" data-sc-legal="privacy">Privacy Policy</button>
+                    <button type="button" data-sc-legal="terms">Terms of Service</button>
+                    <span>Made with <i class="fa-solid fa-heart" aria-hidden="true"></i> in India</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <div id="sc-legal-modal" class="sc-modal" role="dialog" aria-modal="true" aria-labelledby="sc-legal-title" hidden>
+        <div class="sc-modal-card">
+            <button type="button" class="sc-modal-close" data-sc-legal-close aria-label="Close">&times;</button>
+            <h2 id="sc-legal-title" class="sc-modal-title"></h2>
+            <p class="sc-modal-body" data-sc-legal-body></p>
+        </div>
+    </div>
+    <!-- site-footer:end -->
 
     <script>
         // Fade-up on scroll
@@ -353,28 +450,6 @@
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Platforms nav dropdown
-        function togglePlatformsNav() {
-            var d = document.getElementById('platforms-dropdown');
-            var c = document.getElementById('platforms-chevron');
-            d.classList.toggle('open');
-            c.style.transform = d.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
-        document.addEventListener('click', function(e) {
-            var w = document.getElementById('platforms-nav-wrapper');
-            var d = document.getElementById('platforms-dropdown');
-            if (w && d && !w.contains(e.target)) {
-                d.classList.remove('open');
-                var c = document.getElementById('platforms-chevron');
-                if (c) c.style.transform = 'rotate(0deg)';
-            }
-        });
 
         // Trigger visible on load for above-fold elements
         document.querySelectorAll('.fade-up').forEach(el => {
